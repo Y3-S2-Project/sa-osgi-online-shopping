@@ -1,10 +1,10 @@
-package com.shopping.reviewaggregator;
+package com.csse_we_26.reviewaggregator;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.shopping.reviewgenerator.Review;
-import com.shopping.reviewgenerator.ReviewGeneratorService;
+import com.csse_30.reviewgenerator.Review;
+import com.csse_30.reviewgenerator.ReviewGeneratorService;
 
 public class ReviewAggregatorServiceImpl implements ReviewAggregatorService {
 	

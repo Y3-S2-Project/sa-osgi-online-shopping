@@ -1,4 +1,4 @@
-package com.shopping.reviewaggregator;
+package com.csse_we_26.reviewaggregator;
 
 import java.util.List;
 import java.util.Scanner;
@@ -7,8 +7,8 @@ import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
 
-import com.shopping.reviewgenerator.Review;
-import com.shopping.reviewgenerator.ReviewGeneratorService;
+import com.csse_30.reviewgenerator.Review;
+import com.csse_30.reviewgenerator.ReviewGeneratorService;
 
 public class ReviewAggregatorActivator implements BundleActivator {
 

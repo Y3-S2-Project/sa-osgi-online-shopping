@@ -1,4 +1,4 @@
-package com.shopping.reviewaggregator.app;
+package com.csse_we_26.reviewaggregator.app;
 
 import java.util.List;
 import java.util.Scanner;
@@ -10,8 +10,8 @@ import org.osgi.framework.ServiceReference;
 import org.osgi.framework.launch.Framework;
 import org.osgi.framework.launch.FrameworkFactory;
 
-import com.shopping.reviewgenerator.Review;
-import com.shopping.reviewaggregator.ReviewAggregatorService;
+import com.csse_30.reviewgenerator.Review;
+import com.csse_we_26.reviewaggregator.ReviewAggregatorService;
 
 public class ReviewApplication {
 
