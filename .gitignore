@@ -11,7 +11,7 @@
 .mtj.tmp/
 
 # Package Files #
-*.jar
+
 *.war
 *.nar
 *.ear
@@ -23,6 +23,6 @@
 hs_err_pid*
 #remove the following line if you want to keep the build directory
 **/.settings
-**/.classpath
+
 **/.project
 **/bin/
