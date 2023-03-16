@@ -1,4 +1,4 @@
-package com.shopping.reviewgenerator;
+package com.csse_30.reviewgenerator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +28,7 @@ public class ReviewGeneratorServiceImpl implements ReviewGeneratorService {
 	public ReviewGeneratorServiceImpl() {
 		   MongoClient client = new MongoClient("localhost", 27017);
 		    database = client.getDatabase("shopping");
-		    System.out.println("ServiceImpl activated");	
+		    System.out.println("MongoDb connected");	
 	}
 	
 	@Activate

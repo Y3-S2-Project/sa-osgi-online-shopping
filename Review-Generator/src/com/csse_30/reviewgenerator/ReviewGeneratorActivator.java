@@ -1,4 +1,4 @@
-package com.shopping.reviewgenerator;
+package com.csse_30.reviewgenerator;
 
 import java.util.List;
 
@@ -6,11 +6,11 @@ import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceRegistration;
 
+import com.csse_30.reviewgenerator.ReviewGeneratorService;
+import com.csse_30.reviewgenerator.ReviewGeneratorServiceImpl;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import com.shopping.reviewgenerator.ReviewGeneratorService;
-import com.shopping.reviewgenerator.ReviewGeneratorServiceImpl;
 
 public class ReviewGeneratorActivator implements BundleActivator {
 	

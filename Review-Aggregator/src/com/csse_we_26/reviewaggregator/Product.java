@@ -1,4 +1,4 @@
-package com.shopping.reviewaggregator;
+package com.csse_we_26.reviewaggregator;
 
 public class Product {
     
