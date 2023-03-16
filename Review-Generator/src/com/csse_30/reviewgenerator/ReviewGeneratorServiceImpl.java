@@ -28,7 +28,7 @@ public class ReviewGeneratorServiceImpl implements ReviewGeneratorService {
 	public ReviewGeneratorServiceImpl() {
 		   MongoClient client = new MongoClient("localhost", 27017);
 		    database = client.getDatabase("shopping");
-		    System.out.println("ServiceImpl activated");	
+		    System.out.println("MongoDb connected");	
 	}
 	
 	@Activate

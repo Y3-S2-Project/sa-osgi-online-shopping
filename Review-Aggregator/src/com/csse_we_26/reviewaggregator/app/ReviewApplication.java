@@ -2,68 +2,115 @@ package com.csse_we_26.reviewaggregator.app;
 
 import java.util.List;
 import java.util.Scanner;
-import java.util.ServiceLoader;
-
-import org.osgi.framework.BundleContext;
-import org.osgi.framework.BundleException;
-import org.osgi.framework.ServiceReference;
-import org.osgi.framework.launch.Framework;
-import org.osgi.framework.launch.FrameworkFactory;
-
 import com.csse_30.reviewgenerator.Review;
 import com.csse_we_26.reviewaggregator.ReviewAggregatorService;
 
 public class ReviewApplication {
 
-	public static void main(String[] args) {
-		FrameworkFactory frameworkFactory = ServiceLoader.load(FrameworkFactory.class).iterator().next();
-		Framework framework = frameworkFactory.newFramework(null);
-		
-		try {
-            framework.start();
-            BundleContext bundleContext = framework.getBundleContext();
-    		
-    		// Install and start ReviewGenerator bundle
-//    		bundleContext.installBundle("file:/path/to/ReviewGenerator.jar").start();
-    		
-    		// Install and start ReviewAggregator bundle
-//    		bundleContext.installBundle("file:/path/to/ReviewAggregator.jar").start();
-    		
-    		// Get a reference to the ReviewAggregatorService
-    		ServiceReference<ReviewAggregatorService> reviewAggregatorServiceReference = bundleContext.getServiceReference(ReviewAggregatorService.class);
-    		ReviewAggregatorService reviewAggregatorService = bundleContext.getService(reviewAggregatorServiceReference);
-    		
-    		// Get input from the user
-    		Scanner scanner = new Scanner(System.in);
-    		System.out.print("Enter the product ID: ");
-    		String productId = scanner.nextLine();
-    		
-    		// Call the method in ReviewAggregatorService to get the reviews for the product ID
-    		List<Review> reviews = reviewAggregatorService.getReviewsForProduct(productId);
-    		
-    		System.out.println("=================================================================");
-    		
-    		// Display the reviews to the user
-    		System.out.println("Reviews for product ID " + productId + ":");
-    		for (Review review : reviews) {
-    			System.out.println(review);
-    		}
-    		
-    		System.out.println("=================================================================");
+	private static ReviewAggregatorService reviewAggregatorService;
+	
+	public ReviewApplication(ReviewAggregatorService reviewAggregatorService) {
+		this.reviewAggregatorService = reviewAggregatorService;
+	}
 
-    	    scanner.close();
-    	    
-        } catch (BundleException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-//            	bundleContext.ungetService(reviewAggregatorServiceReference);
-                framework.stop();
-                framework.waitForStop(0);
-            } catch (BundleException | InterruptedException e) {
-                e.printStackTrace();
+	public static void getUserGUI() {
+
+		boolean isContinuing = true;
+
+//	    for (int i=0; i<reviews.size(); i++) {
+//	        System.out.println(reviews.get(i).getComment());
+//	    }
+
+	    System.out.println("=================================================================");
+	    System.out.println("PROCESS STARTING");
+	    System.out.println("=================================================================");
+		
+		while (isContinuing) {
+            // Prompt the user to select an action to perform
+            System.out.println("What would you like to do?");
+            System.out.println("1. View reviews for a product");
+            System.out.println("2. Get average rating for a product");
+            System.out.println("3. Get reviews for a particular user");
+            System.out.println("4. Quit");
+            
+            System.out.println("");
+
+            // Read the user's choice
+            System.out.print("Enter your choice (1-4): ");
+            Scanner scanner= new Scanner(System.in);
+			int choice = scanner.nextInt();
+            scanner.nextLine(); // Consume the newline character
+
+
+            switch (choice) {
+                case 1:
+                    // Get input from the user
+                    System.out.print("Enter the product ID: ");
+                    String productId = scanner.nextLine();
+
+                    // Call the method in ReviewAggregatorService to get the reviews for the product ID
+                    List<Review> reviews = reviewAggregatorService.getReviewsForProduct(productId);
+
+                    // Display the reviews to the user
+                    System.out.println("******************The list of reviews for product ID " + productId + "******************");
+                    System.out.println("");
+                    
+                    for (Review review : reviews) {
+                        System.out.println("         ****" + review.getComment());
+                    }
+
+                    break;
+
+                case 2:
+                    // Get input from the user
+                    System.out.print("Enter the product ID: ");
+                    productId = scanner.nextLine();
+                    
+                    System.out.println("");
+
+                    // Call the method in ReviewAggregatorService to get the average rating for the product ID
+                    double averageRating = reviewAggregatorService.getAverageRatingForProduct(productId);
+
+                    // Display the average rating to the user
+                    System.out.println("****************The average rating for product ID " + productId + " is " + averageRating+"****************");
+                    System.out.println("");
+
+                    break;
+
+                case 3:
+                    // Get input from the user
+                    System.out.print("Enter the user ID: ");
+                    String userId = scanner.nextLine();
+
+                    // Call the method in ReviewAggregatorService to get the reviews for the user ID
+                    reviews = reviewAggregatorService.getReviewsByUser(userId);
+
+                    // Display the reviews to the user
+                    System.out.println("****************The list of reviews for user ID " + userId+" ****************");
+                    for (Review review : reviews) {
+                        System.out.println("         ****" + review.getComment());
+                    }
+
+                    break;
+
+                case 4:
+                    // Set isContinuing to false to exit the loop
+                    isContinuing = false;
+
+                    break;
+
+                default:
+                    System.out.println("Invalid choice, please try again.");
+
+                    break;
             }
+            System.out.println("=========================================================================");
         }
+		
+		System.out.println("PROCESS ENDED");
+	    
+	    System.out.println("=========================================================================");
+
 	}
 
 }
