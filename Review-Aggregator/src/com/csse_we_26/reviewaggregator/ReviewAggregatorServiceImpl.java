@@ -3,8 +3,8 @@ package com.csse_we_26.reviewaggregator;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.csse_30.reviewgenerator.Review;
-import com.csse_30.reviewgenerator.ReviewGeneratorService;
+import com.csse_we_26.reviewgenerator.Review;
+import com.csse_we_26.reviewgenerator.ReviewGeneratorService;
 
 public class ReviewAggregatorServiceImpl implements ReviewAggregatorService {
 	

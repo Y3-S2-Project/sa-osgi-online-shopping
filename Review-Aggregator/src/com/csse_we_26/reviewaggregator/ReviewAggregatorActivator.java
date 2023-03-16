@@ -7,9 +7,9 @@ import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
 
-import com.csse_30.reviewgenerator.Review;
-import com.csse_30.reviewgenerator.ReviewGeneratorService;
 import com.csse_we_26.reviewaggregator.app.ReviewApplication;
+import com.csse_we_26.reviewgenerator.Review;
+import com.csse_we_26.reviewgenerator.ReviewGeneratorService;
 
 public class ReviewAggregatorActivator implements BundleActivator {
 

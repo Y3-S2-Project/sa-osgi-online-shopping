@@ -2,8 +2,9 @@ package com.csse_we_26.reviewaggregator.app;
 
 import java.util.List;
 import java.util.Scanner;
-import com.csse_30.reviewgenerator.Review;
+
 import com.csse_we_26.reviewaggregator.ReviewAggregatorService;
+import com.csse_we_26.reviewgenerator.Review;
 
 public class ReviewApplication {
 
