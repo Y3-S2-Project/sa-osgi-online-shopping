@@ -12,3 +12,6 @@ Import-Package: com.csse_we_26.product_listing_generator.DTO,
  com.shopping.reviewaggregator,
  org.osgi.framework;version="1.3.0"
 Bundle-ActivationPolicy: lazy
+Export-Package: com.csse_we_26.shopping_cart_generator.DTO,
+ com.csse_we_26.shopping_cart_generator.mapper,
+ com.csse_we_26.shopping_cart_generator.model
