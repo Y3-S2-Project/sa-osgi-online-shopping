@@ -3,9 +3,6 @@ package com.csse_we_26.shopping_cart_generator.DTO;
 import com.csse_we_26.product_listing_generator.DTO.ProductDTO;
 
 public class CartItemDTO {
-//	private String productId;
-//	private String productName;
-//	private double price;
 	private int quantity;
 	private ProductDTO product;
 	
