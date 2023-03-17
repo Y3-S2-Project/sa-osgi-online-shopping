@@ -11,3 +11,4 @@ Import-Package: com.shopping.reviewgenerator,
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.osgi,
  Review-Generator;bundle-version="1.0.0"
+Export-Package: com.shopping.reviewaggregator
