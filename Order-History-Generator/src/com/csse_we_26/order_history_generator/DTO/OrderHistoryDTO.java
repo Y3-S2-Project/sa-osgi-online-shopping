@@ -14,6 +14,10 @@ public class OrderHistoryDTO {
 	private LocalDateTime orderDate;
 	private String shippingAddress;
 	
+	public OrderHistoryDTO(String oderNumber) {
+		this.oderNumber = oderNumber;
+	}
+	
 	public OrderHistoryDTO(String oderNumber, String customerId, ShoppingCartDTO shoppingCartDTO,
 			OrderStatus orderStatus, LocalDateTime orderDate, String shippingAddress) {
 		this.oderNumber = oderNumber;
