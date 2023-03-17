@@ -18,7 +18,7 @@ public class ShoppingCartMapper {
         for (CartItemDTO itemDTO : shoppingCartDTO.getItems()) {
             items.add(mapToCartItem(itemDTO));
         }
-        return new ShoppingCart(items);
+        return new ShoppingCart(items, shoppingCartDTO.getCustomerId());
     }
 
 	 public static CartItem mapToCartItem(CartItemDTO cartItemDTO) {
@@ -33,7 +33,7 @@ public class ShoppingCartMapper {
         for (CartItem item : shoppingCart.getItems()) {
             itemDTOs.add(mapToCartItemDTO(item));
         }
-        return new ShoppingCartDTO(itemDTOs);
+        return new ShoppingCartDTO(itemDTOs, shoppingCart.getCustomerId());
     }
 
     public static CartItemDTO mapToCartItemDTO(CartItem cartItem) {
@@ -42,41 +42,5 @@ public class ShoppingCartMapper {
         CartItemDTO cartItemDTO = new CartItemDTO(productDTO, cartItem.getQuantity());
         return cartItemDTO;
     }
-
-//	    public static ShoppingCart mapToShoppingCart(ShoppingCartDTO shoppingCartDTO) {
-//	        ShoppingCart shoppingCart = new ShoppingCart();
-//	        shoppingCart.setId(shoppingCartDTO.getId());
-//	        shoppingCart.setUserId(shoppingCartDTO.getUserId());
-//
-//	        List<CartItem> cartItems = new ArrayList<>();
-//	        for (CartItemDTO cartItemDTO : shoppingCartDTO.getCartItems()) {
-//	            CartItem cartItem = new CartItem();
-//	            cartItem.setId(cartItemDTO.getId());
-//	            cartItem.setQuantity(cartItemDTO.getQuantity());
-//	            cartItem.setProduct(ProductMapper.mapToProduct(cartItemDTO.getProduct()));
-//	            cartItems.add(cartItem);
-//	        }
-//	        shoppingCart.setCartItems(cartItems);
-//
-//	        return shoppingCart;
-//	    }
-//
-//	    public static ShoppingCartDTO mapToShoppingCartDTO(ShoppingCart shoppingCart) {
-//	        ShoppingCartDTO shoppingCartDTO = new ShoppingCartDTO();
-//	        shoppingCartDTO.setId(shoppingCart.getId());
-//	        shoppingCartDTO.setUserId(shoppingCart.getUserId());
-//
-//	        List<CartItemDTO> cartItemDTOs = new ArrayList<>();
-//	        for (CartItem cartItem : shoppingCart.getCartItems()) {
-//	            CartItemDTO cartItemDTO = new CartItemDTO();
-//	            cartItemDTO.setId(cartItem.getId());
-//	            cartItemDTO.setQuantity(cartItem.getQuantity());
-//	            cartItemDTO.setProduct(ProductMapper.mapToProductDTO(cartItem.getProduct()));
-//	            cartItemDTOs.add(cartItemDTO);
-//	        }
-//	        shoppingCartDTO.setCartItems(cartItemDTOs);
-//
-//	        return shoppingCartDTO;
-//	    }
 	
 }
