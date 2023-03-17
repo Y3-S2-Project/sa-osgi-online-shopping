@@ -12,8 +12,8 @@ public class MongoDBUtil {
     private static volatile MongoDBUtil instance;
 
     private static final String MONGO_URI = "mongodb://localhost:27017";
-    private static final String DB_NAME = "shoppings";
-    private static final String COLLECTION_NAME = "products";
+    private static final String DB_NAME = "shopping";
+    private static final String COLLECTION_NAME = "product";
 
     private final MongoClient mongoClient;
     private final MongoDatabase  mongoDatabase;
