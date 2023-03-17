@@ -1,4 +1,4 @@
-package com.csse_30.reviewgenerator;
+package com.csse_26.reviewgenerator;
 
 import java.util.List;
 

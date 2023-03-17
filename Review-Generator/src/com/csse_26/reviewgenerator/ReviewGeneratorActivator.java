@@ -1,4 +1,4 @@
-package com.csse_30.reviewgenerator;
+package com.csse_26.reviewgenerator;
 
 import java.util.List;
 
@@ -6,8 +6,8 @@ import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceRegistration;
 
-import com.csse_30.reviewgenerator.ReviewGeneratorService;
-import com.csse_30.reviewgenerator.ReviewGeneratorServiceImpl;
+import com.csse_26.reviewgenerator.ReviewGeneratorService;
+import com.csse_26.reviewgenerator.ReviewGeneratorServiceImpl;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
