@@ -1,8 +1,11 @@
 package com.csse_we_26.shopping_cart_generator.dao.impl;
 
+import java.util.List;
+
 import org.bson.Document;
 
-import com.csse_we_26.product_listing_generator.mapper.ProductMapper;
+import com.csse_we_26.product_listing_generator.DTO.ProductDTO;
+import com.csse_we_26.shopping_cart_generator.DTO.CartItemDTO;
 import com.csse_we_26.shopping_cart_generator.DTO.ShoppingCartDTO;
 import com.csse_we_26.shopping_cart_generator.dao.ShoppingCartDAO;
 import com.csse_we_26.shopping_cart_generator.mapper.ShoppingCartMapper;
@@ -23,27 +26,41 @@ public class ShoppingCartDAOImpl implements ShoppingCartDAO {
 	}
 
 	@Override
-	public ShoppingCartDTO getShoppingCartById(String cartId) {
+	public void addItemToCart(ProductDTO product, int quantity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removeItemFromCart(String productId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateItemQuantity(String prodcutId, int itemQuantity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void clearCart() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<CartItemDTO> getAllCartItems() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void saveShoppingCart(ShoppingCartDTO cart) {
+	public ShoppingCartDTO getShoppingCartByCustomerId(String customerId) {
 		// TODO Auto-generated method stub
-
+		return null;
 	}
 
-	@Override
-	public void updateShoppingCart(ShoppingCartDTO cart) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void deleteShoppingCart(String cartId) {
-		// TODO Auto-generated method stub
-
-	}
+	
 
 }

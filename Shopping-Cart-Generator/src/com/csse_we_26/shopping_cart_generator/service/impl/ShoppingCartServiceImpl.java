@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.csse_we_26.product_listing_generator.DTO.ProductDTO;
 import com.csse_we_26.shopping_cart_generator.DTO.CartItemDTO;
+import com.csse_we_26.shopping_cart_generator.DTO.ShoppingCartDTO;
 import com.csse_we_26.shopping_cart_generator.service.ShoppingCartService;
 
 public class ShoppingCartServiceImpl implements ShoppingCartService {
@@ -39,9 +40,17 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 	}
 
 	@Override
-	public double getTotalPrice() {
+	public ShoppingCartDTO getShoppingCartByCustomerId(String customerId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public double calculateTotalPrice() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	
 
 }

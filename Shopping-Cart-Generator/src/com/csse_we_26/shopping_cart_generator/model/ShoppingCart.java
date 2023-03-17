@@ -5,11 +5,13 @@ import java.util.List;
 public class ShoppingCart {
 	
 	private List<CartItem> items;
+	private String customerId;
 	
 	public ShoppingCart() {}
 
-	public ShoppingCart(List<CartItem> items) {
+	public ShoppingCart(List<CartItem> items, String customerId) {
 		this.items = items;
+		this.customerId = customerId;
 	}
 
 	public List<CartItem> getItems() {
@@ -18,6 +20,16 @@ public class ShoppingCart {
 
 	public void setItems(List<CartItem> items) {
 		this.items = items;
+	}
+
+	public String getCustomerId() {
+		return customerId;
+	}
+
+	public void setCustomerId(String customerId) {
+		this.customerId = customerId;
 	}	
+	
+	
 	
 }

@@ -18,7 +18,7 @@ public class ShoppingCartMapper {
         for (CartItemDTO itemDTO : shoppingCartDTO.getItems()) {
             items.add(mapToCartItem(itemDTO));
         }
-        return new ShoppingCart(items);
+        return new ShoppingCart(items, shoppingCartDTO.getCustomerId());
     }
 
 	 public static CartItem mapToCartItem(CartItemDTO cartItemDTO) {
@@ -33,7 +33,7 @@ public class ShoppingCartMapper {
         for (CartItem item : shoppingCart.getItems()) {
             itemDTOs.add(mapToCartItemDTO(item));
         }
-        return new ShoppingCartDTO(itemDTOs);
+        return new ShoppingCartDTO(itemDTOs, shoppingCart.getCustomerId());
     }
 
     public static CartItemDTO mapToCartItemDTO(CartItem cartItem) {
