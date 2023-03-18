@@ -5,7 +5,9 @@ Bundle-SymbolicName: Shopping-Cart-Generator
 Bundle-Version: 1.0.0.qualifier
 Export-Package: com.csse_we_26.shopping_cart_generator.DTO,
  com.csse_we_26.shopping_cart_generator.mapper,
- com.csse_we_26.shopping_cart_generator.model
+ com.csse_we_26.shopping_cart_generator.model,
+ com.csse_we_26.shopping_cart_generator.service,
+ com.csse_we_26.shopping_cart_generator.service.impl
 Bundle-Activator: com.csse_we_26.shopping_cart_generator.activator.ShoppingCartGeneratorActivator
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Automatic-Module-Name: Shopping.Cart.Generator

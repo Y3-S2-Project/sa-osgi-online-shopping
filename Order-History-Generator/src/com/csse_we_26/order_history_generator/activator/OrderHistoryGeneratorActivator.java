@@ -5,6 +5,7 @@ import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceRegistration;
 
 import com.csse_we_26.order_history_generator.DTO.OrderHistoryDTO;
+import com.csse_we_26.order_history_generator.model.OrderHistory;
 import com.csse_we_26.order_history_generator.service.OrderHistoryService;
 import com.csse_we_26.order_history_generator.service.impl.OrderHistoryServiceImpl;
 
@@ -17,16 +18,11 @@ public class OrderHistoryGeneratorActivator implements BundleActivator {
 
 		OrderHistoryService orderHistoryService = new OrderHistoryServiceImpl();
 
-		orderHistoryRegistration = bundleContext.registerService(
-				OrderHistoryService.class.getName(),
+		orderHistoryRegistration = bundleContext.registerService(OrderHistoryService.class.getName(),
 				orderHistoryService, null);
 
 		System.out.println("Order History Generator bundle started successfully...");
-
-//		orderHistoryService.createOrder(new OrderHistoryDTO("ORD001"));
-//
-//		System.out.println(orderHistoryService.getOrderByOrderNumber("ORD001"));
-
+		OrderHistory order = new OrderHistory();
 	}
 
 	public void stop(BundleContext bundleContext) throws Exception {
