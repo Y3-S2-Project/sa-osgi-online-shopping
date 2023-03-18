@@ -17,13 +17,15 @@ public class OrderHistoryGeneratorActivator implements BundleActivator {
 
 		OrderHistoryService orderHistoryService = new OrderHistoryServiceImpl();
 
-		orderHistoryRegistration = bundleContext.registerService(OrderHistoryService.class.getName(),
+		orderHistoryRegistration = bundleContext.registerService(
+				OrderHistoryService.class.getName(),
 				orderHistoryService, null);
 
 		System.out.println("Order History Generator bundle started successfully...");
 
-		orderHistoryService.createOrder(new OrderHistoryDTO("ORD001"));
-		System.out.println(orderHistoryService.getOrderByOrderNumber("ORD001"));
+//		orderHistoryService.createOrder(new OrderHistoryDTO("ORD001"));
+//
+//		System.out.println(orderHistoryService.getOrderByOrderNumber("ORD001"));
 
 	}
 

@@ -103,5 +103,4 @@ public class OrderHistory {
 				.append("shippingAddress", shippingAddress);
 		return document;
 	}
-
 }

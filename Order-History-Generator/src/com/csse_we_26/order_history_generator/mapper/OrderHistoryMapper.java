@@ -19,7 +19,7 @@ public class OrderHistoryMapper {
         );
     }
 
-    public static OrderHistory mapToOderHistory(OrderHistoryDTO orderHistoryDTO) {
+    public static OrderHistory mapToOrderHistory(OrderHistoryDTO orderHistoryDTO) {
 
         return new OrderHistory(
                 orderHistoryDTO.getOrderNumber(),
@@ -39,6 +39,16 @@ public class OrderHistoryMapper {
     public static OrderHistory mapToOrderHistory(Document document) {
     	OrderHistory orderHistory = new OrderHistory(document);
     	return orderHistory;
+    }
+    
+    public static Document mapToDocument(OrderHistoryDTO orderHistoryDTO) {
+    	Document document = orderHistoryDTO.toDocument();
+    	return document;
+    }
+    
+    public static OrderHistoryDTO mapToOrderHistoryDTO(Document document) {
+    	OrderHistoryDTO orderHistoryDTO = new OrderHistoryDTO(document);
+    	return orderHistoryDTO;
     }
 
 }
