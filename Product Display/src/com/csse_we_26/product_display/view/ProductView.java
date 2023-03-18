@@ -2,7 +2,7 @@ package com.csse_we_26.product_display.view;
 
 import java.util.List;
 
-import com.csse_we_26.product_listing_generator.DTO.ProductDTO;
+import com.csse_we_26.product_listing_generator.dto.ProductDTO;
 import com.csse_we_26.product_listing_generator.service.ProductListingGenerator;
 
 public class ProductView {

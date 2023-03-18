@@ -5,11 +5,25 @@ import java.util.List;
 
 import org.bson.Document;
 
+import com.csse_we_26.product_listing_generator.mapper.ProductMapper;
 import com.csse_we_26.reviewgenerator.dao.ReviewGeneratorDAO;
+import com.csse_we_26.reviewgenerator.mapper.ReviewMapper;
 import com.csse_we_26.reviewgenerator.model.Review;
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
 
 public class ReviewGeneratorImpl  implements ReviewGeneratorDAO{
+	
+	private MongoDatabase database;
+	private MongoCollection<Document> collection;
+	private ReviewMapper mapper;
+
+	public ReviewGeneratorImpl(MongoDatabase database,String collectionName) {
+
+	        this.database = database;
+	        collection = this.database.getCollection(collectionName);
+	        mapper = new ReviewMapper();
+	    }
 	@Override
 	public boolean addReview(Review review) {
 		try {

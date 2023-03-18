@@ -24,33 +24,7 @@ public class ReviewGeneratorServiceImpl implements ReviewGeneratorService {
 		return "Execute the publish service of ServicePublisher";
 	};
 	
-	private MongoDatabase database;
-	private MongoClient mongoClient;
-	
-	public ReviewGeneratorServiceImpl() {
-		   MongoClient client = new MongoClient("localhost", 27017);
-		    database = client.getDatabase("shopping");
-		    System.out.println("MongoDb connected");	
-	}
-	
-	@Activate
-	public void activate() {
-	    
-	}
 
-	@Deactivate
-	public void deactivate() {
-	    // Disconnect from the database here
-	    if (database != null) {
-	        mongoClient.close();
-	        System.out.println("database closed");
-	    }
-	}
-
-	@Reference(policy = ReferencePolicy.STATIC, cardinality = ReferenceCardinality.MANDATORY)
-	public void setDatabase(MongoDatabase database) {
-		this.database = database;
-	}
 
 	@Override
 	public boolean addReview(Review review) {

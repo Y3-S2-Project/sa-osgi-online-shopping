@@ -1,7 +1,7 @@
 package com.csse_we_26.product_listing_generator.service;
 import java.util.List;
 
-import com.csse_we_26.product_listing_generator.DTO.*;
+import com.csse_we_26.product_listing_generator.dto.*;
 public interface ProductListingGenerator {
 
     ProductDTO getProductById(String productId);
