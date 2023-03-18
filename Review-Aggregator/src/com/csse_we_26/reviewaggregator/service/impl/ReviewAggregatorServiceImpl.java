@@ -3,26 +3,31 @@ package com.csse_we_26.reviewaggregator.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.csse_we_26.product_listing_generator.dto.ReviewDTO;
 import com.csse_we_26.reviewaggregator.service.ReviewAggregatorService;
+import com.csse_we_26.reviewgenerator.mapper.ReviewMapper;
 import com.csse_we_26.reviewgenerator.model.Review;
 import com.csse_we_26.reviewgenerator.service.ReviewGeneratorService;
 
 public class ReviewAggregatorServiceImpl implements ReviewAggregatorService {
 	
 	private ReviewGeneratorService reviewGeneratorService;
+	private ReviewMapper mapper;
 	
 	public ReviewAggregatorServiceImpl(ReviewGeneratorService reviewGeneratorService) {
 		this.reviewGeneratorService = reviewGeneratorService;
+		mapper = new ReviewMapper();
 	}
 
 	@Override
 	public List<Review> getReviewsForProduct(String productId) {
-		List<Review> allReviews = reviewGeneratorService.getAllReviews();
+		List<ReviewDTO> allReviews = reviewGeneratorService.getAllReviews();
 		List<Review> reviewsForProduct = new ArrayList<Review>();
-		
-		for (Review review : allReviews) {
-			if (review.getProductId().equals(productId)) {
-				reviewsForProduct.add(review);
+		 
+		for (ReviewDTO reviewDTO : allReviews) {
+			if (reviewDTO.getProductId().equals(productId)) {
+			
+				reviewsForProduct.add(mapper.mapToReview(reviewDTO));
 			}
 		}
 		
@@ -48,12 +53,14 @@ public class ReviewAggregatorServiceImpl implements ReviewAggregatorService {
 
 	@Override
 	public List<Review> getReviewsByUser(String userId) {
-		List<Review> allReviews = reviewGeneratorService.getAllReviews();
+		
+		List<ReviewDTO> allReviews = reviewGeneratorService.getAllReviews();
 		List<Review> reviewsByUser = new ArrayList<Review>();
 		
-		for (Review review : allReviews) {
-			if (review.getUserId().equals(userId)) {
-				reviewsByUser.add(review);
+		for (ReviewDTO reviewDTO : allReviews) {
+			if (reviewDTO.getUserId().equals(userId)) {
+				
+				reviewsByUser.add(mapper.mapToReview(reviewDTO));
 			}
 		}
 		

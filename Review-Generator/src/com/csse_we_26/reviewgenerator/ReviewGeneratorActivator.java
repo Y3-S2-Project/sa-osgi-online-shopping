@@ -20,22 +20,15 @@ public class ReviewGeneratorActivator implements BundleActivator {
 	public void start(BundleContext bundleContext) throws Exception {
 		System.out.println("Starting Review Generator bundle...");
 		
-//		MongoClient mongoClient = new MongoClient("localhost", 27017);
-//		System.out.println("mongodb connected");
-//		MongoDatabase database = mongoClient.getDatabase("shopping");
-//		MongoCollection<org.bson.Document> collection = database.getCollection("reviews");
-		
 		ReviewGeneratorService reviewGeneratorService = new ReviewGeneratorServiceImpl();
-		
-//		reviewGeneratorServiceImpl.activate();
-		
+	
 		registration = bundleContext.registerService(
 				ReviewGeneratorService.class.getName(), 
 				reviewGeneratorService, 
 				null);
 		
 		System.out.println("Review Generator bundle started successfully.");
-//		System.out.println(collection.count());
+
 		
 	}
 

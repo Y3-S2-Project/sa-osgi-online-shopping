@@ -33,6 +33,8 @@ public class ProductDAOImpl implements ProductDAO {
         mapper = new ProductMapper();
     }
     
+
+    
     @Override
     public Product getProductById(String id) {
         BasicDBObject query = new BasicDBObject("pid", id);
@@ -124,4 +126,13 @@ public class ProductDAOImpl implements ProductDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
+
+	   
+    @Override
+    public void addProduct(Product product) {
+        Document doc = mapper.mapToDocument(product);
+        collection.insertOne(doc);
+    }
 }
