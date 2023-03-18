@@ -1,6 +1,9 @@
 package com.csse_we_26.shopping_cart_generator.model;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import org.bson.Document;
 
 public class ShoppingCart {
 	
@@ -8,7 +11,18 @@ public class ShoppingCart {
 	private String customerId;
 	
 	public ShoppingCart() {}
-
+	
+	public ShoppingCart(Document document) {
+		this.customerId = document.getString("customerId");
+		List<Document> cartItemList = (List<Document>) document.get("items");
+	    List<CartItem> cartItems = new ArrayList<>();
+	    for (Document cartItemDoc : cartItemList) {
+	        CartItem cartItem = new CartItem(cartItemDoc);
+	        cartItems.add(cartItem);
+	    }
+	    this.items = cartItems;
+	}
+	
 	public ShoppingCart(List<CartItem> items, String customerId) {
 		this.items = items;
 		this.customerId = customerId;

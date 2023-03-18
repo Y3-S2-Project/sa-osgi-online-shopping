@@ -3,6 +3,8 @@ package com.csse_we_26.shopping_cart_generator.mapper;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.bson.Document;
+
 import com.csse_we_26.product_listing_generator.DTO.ProductDTO;
 import com.csse_we_26.product_listing_generator.mapper.ProductMapper;
 import com.csse_we_26.product_listing_generator.model.Product;
@@ -41,6 +43,11 @@ public class ShoppingCartMapper {
         ProductDTO productDTO = productMapper.mapToProductDTO(cartItem.getProduct());
         CartItemDTO cartItemDTO = new CartItemDTO(productDTO, cartItem.getQuantity());
         return cartItemDTO;
+    }
+    
+    public static ShoppingCart mapToShoppingCart(Document document) {
+    	ShoppingCart shoppingCart = new ShoppingCart();
+    	return shoppingCart;
     }
 	
 }
