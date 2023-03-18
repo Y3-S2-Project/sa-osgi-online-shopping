@@ -1,12 +1,14 @@
 package com.csse_we_26.order_history_generator.mapper;
 
+import org.bson.Document;
+
 import com.csse_we_26.order_history_generator.DTO.OrderHistoryDTO;
 import com.csse_we_26.order_history_generator.model.OrderHistory;
 import com.csse_we_26.shopping_cart_generator.mapper.ShoppingCartMapper;
 
 public class OrderHistoryMapper {
 	
-    public OrderHistoryDTO mapToOrderHistoryDTO(OrderHistory orderHistory) {
+    public static OrderHistoryDTO mapToOrderHistoryDTO(OrderHistory orderHistory) {
         return new OrderHistoryDTO(
                 orderHistory.getOrderNumber(),
                 orderHistory.getCustomerId(),
@@ -17,7 +19,8 @@ public class OrderHistoryMapper {
         );
     }
 
-    public OrderHistory mapToOrderHistory(OrderHistoryDTO orderHistoryDTO) {
+    public static OrderHistory mapToOderHistory(OrderHistoryDTO orderHistoryDTO) {
+
         return new OrderHistory(
                 orderHistoryDTO.getOrderNumber(),
                 orderHistoryDTO.getCustomerId(),
@@ -26,6 +29,16 @@ public class OrderHistoryMapper {
                 orderHistoryDTO.getOrderDate(),
                 orderHistoryDTO.getShippingAddress()
         );
+    }
+    
+    public static Document mapToDocument(OrderHistory orderHistory) {
+    	Document document = orderHistory.toDocument();
+    	return document;
+    }
+    
+    public static OrderHistory mapToOrderHistory(Document document) {
+    	OrderHistory orderHistory = new OrderHistory(document);
+    	return orderHistory;
     }
 
 }
