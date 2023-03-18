@@ -58,4 +58,10 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 		}
 		return totalPrice;
 	}
+
+	@Override
+	public void saveShoppingCart(ShoppingCartDTO shoppingCartDTO) {
+		// TODO Auto-generated method stub
+		
+	}
 }

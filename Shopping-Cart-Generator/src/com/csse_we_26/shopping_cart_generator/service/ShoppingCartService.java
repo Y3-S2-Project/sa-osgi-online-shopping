@@ -15,5 +15,6 @@ public interface ShoppingCartService {
 	public List<CartItemDTO> getAllCartItems();
 	public ShoppingCartDTO getShoppingCartByCustomerId(String customerId);
 	public double calculateTotalPrice();
+	public void saveShoppingCart(ShoppingCartDTO shoppingCartDTO);
 
 }

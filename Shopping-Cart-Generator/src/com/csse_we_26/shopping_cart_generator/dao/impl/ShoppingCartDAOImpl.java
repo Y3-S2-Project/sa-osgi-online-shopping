@@ -87,4 +87,10 @@ public class ShoppingCartDAOImpl implements ShoppingCartDAO {
 		return ShoppingCartMapper.mapToShoppingCartDTO(document);
 	}
 
+	@Override
+	public void saveShoppingCart(ShoppingCartDTO shoppingCartDTO) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
