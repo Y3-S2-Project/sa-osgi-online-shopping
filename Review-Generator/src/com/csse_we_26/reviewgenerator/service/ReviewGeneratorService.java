@@ -1,6 +1,8 @@
-package com.csse_we_26.reviewgenerator;
+package com.csse_we_26.reviewgenerator.service;
 
 import java.util.List;
+
+import com.csse_we_26.reviewgenerator.model.Review;
 
 public interface ReviewGeneratorService {
 	

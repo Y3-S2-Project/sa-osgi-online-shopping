@@ -1,58 +1,29 @@
-package com.csse_30.reviewgenerator;
+package com.csse_we_26.reviewgenerator.dao.impl;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.bson.Document;
-import org.osgi.service.component.annotations.Activate;
-import org.osgi.service.component.annotations.Component;
-import org.osgi.service.component.annotations.Deactivate;
-import org.osgi.service.component.annotations.Reference;
-import org.osgi.service.component.annotations.ReferenceCardinality;
-import org.osgi.service.component.annotations.ReferencePolicy;
 
-import com.mongodb.MongoClient;
+import com.csse_we_26.product_listing_generator.mapper.ProductMapper;
+import com.csse_we_26.reviewgenerator.dao.ReviewGeneratorDAO;
+import com.csse_we_26.reviewgenerator.mapper.ReviewMapper;
+import com.csse_we_26.reviewgenerator.model.Review;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 
-@Component(immediate = true)
-public class ReviewGeneratorServiceImpl implements ReviewGeneratorService {
-	
-	public String ReviewGeneratorService() {
-		return "Execute the publish service of ServicePublisher";
-	};
+public class ReviewGeneratorImpl  implements ReviewGeneratorDAO{
 	
 	private MongoDatabase database;
-	private MongoClient mongoClient;
-	
-	public ReviewGeneratorServiceImpl() {
-		   MongoClient client = new MongoClient("localhost", 27017);
-		    database = client.getDatabase("shopping");
-		    System.out.println("MongoDb connected");	
-	}
-	
-	@Activate
-	public void activate() {
-	    // Connect to the database here
-//	    MongoClient client = new MongoClient("localhost", 27017);
-//	    database = client.getDatabase("shopping");
-//	    System.out.println("ServiceImpl activated");	    
-	}
+	private MongoCollection<Document> collection;
+	private ReviewMapper mapper;
 
-	@Deactivate
-	public void deactivate() {
-	    // Disconnect from the database here
-	    if (database != null) {
-	        mongoClient.close();
-	        System.out.println("database closed");
+	public ReviewGeneratorImpl(MongoDatabase database,String collectionName) {
+
+	        this.database = database;
+	        collection = this.database.getCollection(collectionName);
+	        mapper = new ReviewMapper();
 	    }
-	}
-
-	@Reference(policy = ReferencePolicy.STATIC, cardinality = ReferenceCardinality.MANDATORY)
-	public void setDatabase(MongoDatabase database) {
-		this.database = database;
-	}
-	
 	@Override
 	public boolean addReview(Review review) {
 		try {
@@ -131,5 +102,4 @@ public class ReviewGeneratorServiceImpl implements ReviewGeneratorService {
 			return null;
 		}
 	}
-
 }

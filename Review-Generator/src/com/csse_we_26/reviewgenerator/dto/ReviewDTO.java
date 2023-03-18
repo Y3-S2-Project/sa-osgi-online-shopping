@@ -1,4 +1,4 @@
-package com.csse_we_26.product_listing_generator.DTO;
+package com.csse_we_26.reviewgenerator.dto;
 
 public class ReviewDTO {
 	private String id;

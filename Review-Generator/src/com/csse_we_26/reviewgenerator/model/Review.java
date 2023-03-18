@@ -1,4 +1,4 @@
-package com.csse_30.reviewgenerator;
+package com.csse_we_26.reviewgenerator.model;
 
 public class Review {
 	

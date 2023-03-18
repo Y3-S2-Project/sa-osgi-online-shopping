@@ -6,8 +6,8 @@ import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceRegistration;
 
-import com.csse_we_26.reviewgenerator.ReviewGeneratorService;
-import com.csse_we_26.reviewgenerator.ReviewGeneratorServiceImpl;
+import com.csse_we_26.reviewgenerator.service.ReviewGeneratorService;
+import com.csse_we_26.reviewgenerator.service.impl.ReviewGeneratorServiceImpl;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;

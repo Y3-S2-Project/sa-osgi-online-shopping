@@ -33,11 +33,7 @@ public class ProductDAOImpl implements ProductDAO {
         mapper = new ProductMapper();
     }
     
-    @Override
-    public void addProduct(Product product) {
-        Document doc = mapper.mapToDocument(product);
-        collection.insertOne(doc);
-    }
+
     
     @Override
     public Product getProductById(String id) {

@@ -6,7 +6,7 @@ import com.csse_we_26.product_listing_generator.model.Product;
 
 public interface ProductDAO {
     
-    public void addProduct(Product product);
+
     
     public Product getProductById(String id);
     
