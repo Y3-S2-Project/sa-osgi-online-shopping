@@ -23,6 +23,7 @@ public class ProductView {
             System.out.println("Product Rating: " + product.getRating());
      
             System.out.println("Product Category: " + product.getCategory());
+            System.out.println("Product reviews"+ product.getReviews().toString());
         } else {
             System.out.println("Product not found: " + productId);
         }

@@ -1,4 +1,4 @@
-package com.csse_we_26.product_listing_generator.utils;
+package mongodb_service;
 
 import org.bson.Document;
 

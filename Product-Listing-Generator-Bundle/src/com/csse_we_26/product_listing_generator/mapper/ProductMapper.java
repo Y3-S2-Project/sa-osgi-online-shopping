@@ -2,7 +2,9 @@ package com.csse_we_26.product_listing_generator.mapper;
 
 import com.csse_we_26.product_listing_generator.dto.ProductDTO;
 import com.csse_we_26.product_listing_generator.model.Product;
+import com.csse_we_26.reviewgenerator.dto.ReviewDTO;
 
+import java.util.List;
 
 import org.bson.Document;
 
@@ -20,12 +22,12 @@ public class ProductMapper {
         return product;
     }
 
-    public ProductDTO mapToProductDTO(Product product) {
+    public ProductDTO mapToProductDTO(Product product, List<ReviewDTO> list) {
         ProductDTO productDTO = new ProductDTO.Builder().
         setRating(product.getRating()).setPrice(product.getPrice()).
         setId(product.getId()).setCategory(product.getCategory()).
         setDescription(product.getDescription()).
-        setName(product.getName()).build();
+        setName(product.getName()).setReviews(list).build();
 
 
         return productDTO;

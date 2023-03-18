@@ -20,7 +20,7 @@ public class ProductListingDisplay {
         productView.displayProductById(productId);
     }
     public void searchProductsByKeyword(String keyword) {
-    	productView.searchProductsByKeyword( keyword);
+    	productView.searchProductsByKeyword(keyword);
     }
     public void displayProductsByCategory(String category) {
         productView.displayProductsByCategory(category);
@@ -124,11 +124,11 @@ public class ProductListingDisplay {
                     
                     break;
                 case 7:
-                	  // Get input from the user
+                	 // Get input from the user
                     System.out.print("Enter the min price and max price ranges (EX :-  90 95 ): ");
                     String inputs = scanner.nextLine();
                     
-                 // Split the input string into two substrings using the split() method
+                     // Split the input string into two substrings using the split() method
                     String[] part = inputs.split(" ");
                     
                     // Convert the two substrings into double values using the Double.parseDouble() method

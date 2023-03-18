@@ -123,8 +123,8 @@ public class ProductDTO {
             return this;
         }
 
-        public Builder setReviews(List<ReviewDTO> reviewDTOs) {
-            this.reviewDTOs = reviewDTOs;
+        public Builder setReviews(List<ReviewDTO> list) {
+            this.reviewDTOs = list;
             return this;
         }
 

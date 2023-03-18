@@ -13,5 +13,6 @@ public interface ReviewGeneratorDAO {
 	boolean deleteReview(String reviewId);
 
 	boolean addReview(Review review);
+	public List<Review> getReviewByProductId(String productId);
 
 }

@@ -11,7 +11,7 @@ import org.bson.conversions.Bson;
 import com.csse_we_26.product_listing_generator.dao.ProductDAO;
 import com.csse_we_26.product_listing_generator.mapper.ProductMapper;
 import com.csse_we_26.product_listing_generator.model.Product;
-import com.csse_we_26.product_listing_generator.utils.MongoDBUtil;
+
 import com.mongodb.BasicDBObject;
 import com.mongodb.MongoClient;
 import com.mongodb.client.FindIterable;

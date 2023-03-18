@@ -2,7 +2,9 @@ package com.csse_we_26.reviewgenerator.service;
 
 import java.util.List;
 
-import com.csse_we_26.product_listing_generator.dto.ReviewDTO;
+import com.csse_we_26.reviewgenerator.dto.ReviewDTO;
+
+
 
 
 public interface ReviewGeneratorService {
@@ -16,5 +18,6 @@ public interface ReviewGeneratorService {
 	public boolean updateReview(ReviewDTO reviewDTO);
 	
 	public List<ReviewDTO> getAllReviews();
+	public List<ReviewDTO> getReviewByProductId(String productId);
 
 }

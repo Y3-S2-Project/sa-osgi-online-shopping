@@ -66,5 +66,6 @@ public class ReviewAggregatorServiceImpl implements ReviewAggregatorService {
 		
 		return reviewsByUser;
 	}
+
 }
 

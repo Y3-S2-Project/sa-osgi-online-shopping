@@ -2,7 +2,7 @@ package com.csse_we_26.reviewgenerator.mapper;
 
 import org.bson.Document;
 
-import com.csse_we_26.product_listing_generator.dto.ReviewDTO;
+import com.csse_we_26.reviewgenerator.dto.ReviewDTO;
 import com.csse_we_26.reviewgenerator.model.Review;
 
 

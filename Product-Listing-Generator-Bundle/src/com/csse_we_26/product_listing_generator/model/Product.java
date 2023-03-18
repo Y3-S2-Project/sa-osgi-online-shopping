@@ -3,12 +3,12 @@ package com.csse_we_26.product_listing_generator.model;
 
 import java.util.List;
 import java.util.Map;
-
+import com.csse_we_26.product_listing_generator.model.Review;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 
 
-import com.csse_we_26.reviewgenerator.model.Review;
+
 
 public class Product {
 	private ObjectId _id;
