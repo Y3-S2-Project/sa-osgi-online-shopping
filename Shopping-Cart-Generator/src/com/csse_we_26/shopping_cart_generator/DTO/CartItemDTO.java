@@ -18,6 +18,10 @@ public class CartItemDTO {
 		this.product = (ProductDTO) document.get("product");
 	}
 
+	public CartItemDTO() {
+		
+	}
+
 	public ProductDTO getProduct() {
 		return product;
 	}

@@ -18,6 +18,10 @@ public class ShoppingCartDTO {
 		this.items = (List<CartItemDTO>) document.get("items");
 	}
 
+	public ShoppingCartDTO() {
+		
+	}
+
 	public List<CartItemDTO> getItems() {
 		return items;
 	}
