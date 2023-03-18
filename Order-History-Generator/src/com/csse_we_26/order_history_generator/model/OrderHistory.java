@@ -10,7 +10,7 @@ import com.csse_we_26.shopping_cart_generator.model.ShoppingCart;
 
 public class OrderHistory {
 
-	private String oderNumber;
+	private String orderNumber;
 	private String customerId;
 	private ShoppingCart shoppingCart;
 	private OrderStatus orderStatus;
@@ -20,9 +20,9 @@ public class OrderHistory {
 	public OrderHistory() {
 	}
 
-	public OrderHistory(String oderNumber, String customerId, ShoppingCart shoppingCart, OrderStatus orderStatus,
+	public OrderHistory(String orderNumber, String customerId, ShoppingCart shoppingCart, OrderStatus orderStatus,
 			LocalDateTime orderDate, String shippingAddress) {
-		this.oderNumber = oderNumber;
+		this.orderNumber = orderNumber;
 		this.customerId = customerId;
 		this.shoppingCart = shoppingCart;
 		this.orderStatus = orderStatus;
@@ -30,12 +30,12 @@ public class OrderHistory {
 		this.shippingAddress = shippingAddress;
 	}
 
-	public String getOderNumber() {
-		return oderNumber;
+	public String getOrderNumber() {
+		return orderNumber;
 	}
 
-	public void setOderNumber(String oderNumber) {
-		this.oderNumber = oderNumber;
+	public void setOrderNumber(String orderNumber) {
+		this.orderNumber = orderNumber;
 	}
 
 	public String getCustomerId() {
