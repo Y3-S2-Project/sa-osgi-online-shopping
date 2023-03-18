@@ -1,6 +1,6 @@
 package com.csse_we_26.product_listing_generator.mapper;
 
-import com.csse_we_26.product_listing_generator.dto.ProductDTO;
+import com.csse_we_26.product_listing_generator.DTO.ProductDTO;
 import com.csse_we_26.product_listing_generator.model.Product;
 
 

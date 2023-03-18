@@ -1,4 +1,4 @@
-package com.csse_we_26.product_listing_generator.dto;
+package com.csse_we_26.product_listing_generator.DTO;
 
 import java.util.List;
 import java.util.Map;
