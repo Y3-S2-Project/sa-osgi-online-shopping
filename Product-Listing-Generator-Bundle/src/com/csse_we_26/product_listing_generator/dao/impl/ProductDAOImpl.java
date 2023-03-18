@@ -33,8 +33,6 @@ public class ProductDAOImpl implements ProductDAO {
         mapper = new ProductMapper();
     }
     
-
-    
     @Override
     public Product getProductById(String id) {
         BasicDBObject query = new BasicDBObject("pid", id);

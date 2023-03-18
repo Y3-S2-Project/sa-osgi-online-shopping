@@ -11,8 +11,8 @@ public interface OrderHistoryService {
 	public List<OrderHistoryDTO> getAllOrders();
 	public List<OrderHistoryDTO> getOrderHistoryByCustomerId(String customerId);
 	public List<OrderHistoryDTO> getOrderHistoryByDate(LocalDateTime date);
-	public void createOrder(OrderHistoryDTO order);
-	public void updateOrder(OrderHistoryDTO order);
-	public void removeOrderByOrderNumber(String orderNumber); 
+	public boolean createOrder(OrderHistoryDTO order);
+	public boolean updateOrder(OrderHistoryDTO order);
+	public boolean removeOrderByOrderNumber(String orderNumber); 
 
 }
