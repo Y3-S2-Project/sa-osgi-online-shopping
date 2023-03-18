@@ -14,7 +14,9 @@ public class OrderHistoryServiceImpl implements OrderHistoryService {
 
 	public OrderHistoryServiceImpl() {
 		System.out.println("check one");
-		orderHistoryDAOImpl = new OrderHistoryDAOImpl(MongoDBUtil.getInstance().getDatabase(), "orders");
+		System.out.println(MongoDBUtil.getInstance().getDatabase());
+//		orderHistoryDAOImpl = new OrderHistoryDAOImpl(MongoDBUtil.getInstance().getDatabase(), "orders");
+		System.out.println("check two");
 	}
 
 	@Override

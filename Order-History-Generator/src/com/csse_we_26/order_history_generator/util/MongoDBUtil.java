@@ -13,14 +13,13 @@ public class MongoDBUtil {
 
 	private static final String MONGO_URI = "mongodb://localhost:27017";
 	private static final String DB_NAME = "shopping";
-	private static final String COLLECTION_NAME = "order";
+//	private static final String COLLECTION_NAME = "order";
 
 	private final MongoClient mongoClient;
 	private final MongoDatabase mongoDatabase;
 	private final MongoCollection<Document> mongoCollection;
 
 	private MongoDBUtil() {
-		System.out.println("awa");
 		MongoClientURI uri = new MongoClientURI(MONGO_URI);
 		mongoClient = new MongoClient(uri);
 		mongoDatabase = mongoClient.getDatabase(DB_NAME);
@@ -29,6 +28,7 @@ public class MongoDBUtil {
 	}
 
 	public static MongoDBUtil getInstance() {
+		System.out.println("inside get instance method");
         MongoDBUtil result = instance;
         if (result == null) {
             synchronized(MongoDBUtil.class) {
@@ -41,12 +41,17 @@ public class MongoDBUtil {
         return result;
     }
 
-    public MongoDatabase getDatabase() {
-        return mongoDatabase;
-    }
+	public MongoDatabase getDatabase() {
+		System.out.println("inside get database method");
+		return mongoDatabase;
+	}
 
-    public void closeConnection() {
-        mongoClient.close();
-    }
+	public void closeConnection() {
+		mongoClient.close();
+	}
+
+	public MongoCollection<Document> getCartCollection() {
+		return mongoCollection;
+	}
 
 }
