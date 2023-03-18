@@ -11,4 +11,6 @@ Import-Package: com.csse_we_26.product_listing_generator.DTO,
  com.csse_we_26.shopping_cart_generator.mapper,
  com.csse_we_26.shopping_cart_generator.model,
  org.osgi.framework;version="1.3.0"
+Require-Bundle: Product-Listing-Generator-Bundle;bundle-version="1.0.0",
+ Shopping-Cart-Generator;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy

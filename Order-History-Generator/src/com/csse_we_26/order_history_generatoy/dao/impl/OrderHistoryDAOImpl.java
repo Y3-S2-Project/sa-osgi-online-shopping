@@ -23,7 +23,6 @@ public class OrderHistoryDAOImpl implements OrderHistoryDAO {
 	public OrderHistoryDAOImpl(MongoDatabase database, String collectionName) {
 		this.database = database;
 		collection = this.database.getCollection(collectionName);
-		System.out.println(collection.count());
 	}
 
 	@Override
