@@ -36,6 +36,13 @@ public class CartItem {
 	public void setProduct(Product product) {
 		this.product = product;
 	}
+	
+	public Document toDocument() {
+		Document document = new Document("quantity", quantity)
+				.append("product", product);
+		System.out.println("document" + document.toJson());
+		return document;
+	}
     
 }
 
