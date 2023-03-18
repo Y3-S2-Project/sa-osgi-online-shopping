@@ -4,7 +4,7 @@ import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceRegistration;
 
-
+import com.csse_we_26.product_listing_generator.dto.ProductDTO;
 import com.csse_we_26.product_listing_generator.mapper.ProductMapper;
 import com.csse_we_26.product_listing_generator.service.ProductListingGenerator;
 import com.csse_we_26.product_listing_generator.service.impl.ProductListingGeneratorImpl;
@@ -25,7 +25,7 @@ public class Activator implements BundleActivator {
 		
 		System.out.println("Product Listing Generator bundle started successfully.");
 		ProductMapper mapper = new ProductMapper();
-		//productListingGeneratorService.addProduct(new ProductDTO.Builder().setId("PID009").build());
+		productListingGeneratorService.addProduct(new ProductDTO.Builder().setId("PID009").build());
         System.out.println(productListingGeneratorService.getProductById("PID009").getId());
 	}
 	public void stop(BundleContext bundleContext) throws Exception {

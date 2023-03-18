@@ -1,7 +1,9 @@
-package com.csse_we_26.product_listing_generator.DTO;
+package com.csse_we_26.product_listing_generator.dto;
 
 import java.util.List;
 import java.util.Map;
+
+import com.csse_we_26.reviewgenerator.dto.ReviewDTO;
 
 public class ProductDTO {
     private String pid;
@@ -10,6 +12,7 @@ public class ProductDTO {
     private String category;
     private double price;
     private double rating;
+    
     private List<String> images;
     private Map<String, String> specs;
     private List<ReviewDTO> reviewDTOs;

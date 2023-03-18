@@ -1,64 +1,33 @@
-package com.csse_we_26.reviewgenerator;
+package com.csse_we_26.reviewgenerator.dao.impl;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.bson.Document;
-import org.osgi.service.component.annotations.Activate;
-import org.osgi.service.component.annotations.Component;
-import org.osgi.service.component.annotations.Deactivate;
-import org.osgi.service.component.annotations.Reference;
-import org.osgi.service.component.annotations.ReferenceCardinality;
-import org.osgi.service.component.annotations.ReferencePolicy;
 
-import com.mongodb.MongoClient;
+
+import com.csse_we_26.reviewgenerator.dao.ReviewGeneratorDAO;
+import com.csse_we_26.reviewgenerator.mapper.ReviewMapper;
+import com.csse_we_26.reviewgenerator.model.Review;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 
-@Component(immediate = true)
-public class ReviewGeneratorServiceImpl implements ReviewGeneratorService {
-	
-	public String ReviewGeneratorService() {
-		return "Execute the publish service of ServicePublisher";
-	};
+public class ReviewGeneratorImplDAO  implements ReviewGeneratorDAO{
 	
 	private MongoDatabase database;
-	private MongoClient mongoClient;
-	
-	public ReviewGeneratorServiceImpl() {
-		   MongoClient client = new MongoClient("localhost", 27017);
-		    database = client.getDatabase("shopping");
-		    System.out.println("MongoDb connected");	
-	}
-	
-	@Activate
-	public void activate() {
-	    // Connect to the database here
-//	    MongoClient client = new MongoClient("localhost", 27017);
-//	    database = client.getDatabase("shopping");
-//	    System.out.println("ServiceImpl activated");	    
-	}
+	private MongoCollection<Document> collection;
+	private ReviewMapper mapper;
 
-	@Deactivate
-	public void deactivate() {
-	    // Disconnect from the database here
-	    if (database != null) {
-	        mongoClient.close();
-	        System.out.println("database closed");
+	public ReviewGeneratorImplDAO(MongoDatabase database,String collectionName) {
+
+	        this.database = database;
+	        collection = this.database.getCollection(collectionName);
+	        mapper = new ReviewMapper();
 	    }
-	}
-
-	@Reference(policy = ReferencePolicy.STATIC, cardinality = ReferenceCardinality.MANDATORY)
-	public void setDatabase(MongoDatabase database) {
-		this.database = database;
-	}
-	
 	@Override
 	public boolean addReview(Review review) {
 		try {
-			MongoCollection<Document> collection = database.getCollection("reviews");
-			
-			//proCollection
+			//MongoCollection<Document> collection = database.getCollection("reviews");
 			
 			Document doc = new Document("productId", review.getProductId())
 					.append("userId", review.getUserId())
@@ -77,7 +46,7 @@ public class ReviewGeneratorServiceImpl implements ReviewGeneratorService {
 	@Override
 	public boolean deleteReview(String reviewId) {
 		try {
-			MongoCollection<Document> collection = database.getCollection("reviews");
+			//MongoCollection<Document> collection = database.getCollection("reviews");
 			
 			collection.deleteOne(new Document("_id", reviewId));
 			
@@ -91,7 +60,7 @@ public class ReviewGeneratorServiceImpl implements ReviewGeneratorService {
 	@Override
 	public boolean updateReview(Review review) {
 		try {
-			MongoCollection<Document> collection = database.getCollection("reviews");
+			//MongoCollection<Document> collection = database.getCollection("reviews");
 			
 			Document doc = new Document("_id", review.getId())
 					.append("productId", review.getProductId())
@@ -111,7 +80,7 @@ public class ReviewGeneratorServiceImpl implements ReviewGeneratorService {
 	@Override
 	public List<Review> getAllReviews() {
 		try {
-			MongoCollection<Document> collection = database.getCollection("reviews");
+			//MongoCollection<Document> collection = database.getCollection("reviews");
 			
 			List<Review> reviews = new ArrayList<>();
 			
@@ -133,7 +102,4 @@ public class ReviewGeneratorServiceImpl implements ReviewGeneratorService {
 			return null;
 		}
 	}
-	
-	
-
 }

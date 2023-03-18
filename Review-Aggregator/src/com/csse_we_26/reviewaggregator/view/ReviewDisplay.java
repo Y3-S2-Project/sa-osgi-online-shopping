@@ -1,26 +1,22 @@
-package com.csse_we_26.reviewaggregator.app;
+package com.csse_we_26.reviewaggregator.view;
 
 import java.util.List;
 import java.util.Scanner;
 
-import com.csse_we_26.reviewaggregator.ReviewAggregatorService;
-import com.csse_we_26.reviewgenerator.Review;
+import com.csse_we_26.reviewaggregator.service.ReviewAggregatorService;
+import com.csse_we_26.reviewgenerator.model.Review;
 
-public class ReviewApplication {
+public class ReviewDisplay {
 
 	private static ReviewAggregatorService reviewAggregatorService;
 	
-	public ReviewApplication(ReviewAggregatorService reviewAggregatorService) {
+	public ReviewDisplay(ReviewAggregatorService reviewAggregatorService) {
 		this.reviewAggregatorService = reviewAggregatorService;
 	}
 
 	public static void getUserGUI() {
 
 		boolean isContinuing = true;
-
-//	    for (int i=0; i<reviews.size(); i++) {
-//	        System.out.println(reviews.get(i).getComment());
-//	    }
 
 	    System.out.println("=================================================================");
 	    System.out.println("PROCESS STARTING");

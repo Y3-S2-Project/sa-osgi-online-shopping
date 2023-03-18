@@ -3,6 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Review-Aggregator
 Bundle-SymbolicName: Review-Aggregator
 Bundle-Version: 1.0.0.qualifier
+Export-Package: com.csse_we_26.reviewaggregator
 Bundle-Activator: com.csse_we_26.reviewaggregator.ReviewAggregatorActivator
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Automatic-Module-Name: Review.Aggregator
@@ -11,3 +12,4 @@ Import-Package: com.csse_we_26.reviewgenerator,
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.osgi,
  Review-Generator;bundle-version="1.0.0"
+

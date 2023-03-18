@@ -7,12 +7,13 @@ import java.util.Map;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 
-import com.csse_we_26.product_listing_generator.DTO.ReviewDTO;
+
+import com.csse_we_26.reviewgenerator.model.Review;
 
 public class Product {
 	private ObjectId _id;
 	private String pid;
-	private String name;
+    private String name;
     private String description;
     private String category;
     private double price;
@@ -20,7 +21,7 @@ public class Product {
 
     private List<String> images;
     private Map<String, String> specs;
-    private List<ReviewDTO> reviews;
+    private List<Review> reviews;
     
 
     public Product() {
@@ -60,10 +61,10 @@ public class Product {
 	public void setSpecs(Map<String, String> specs) {
 		this.specs = specs;
 	}
-	public List<ReviewDTO> getReviews() {
+	public List<Review> getReviews() {
 		return reviews;
 	}
-	public void setReviews(List<ReviewDTO> reviews) {
+	public void setReviews(List<Review> reviews) {
 		this.reviews = reviews;
 	}
 	public String getCategory() {
