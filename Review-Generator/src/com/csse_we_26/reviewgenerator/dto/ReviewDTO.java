@@ -7,7 +7,7 @@ public class ReviewDTO {
 	private double rating;
 	private String comment;
 
-	public ReviewDTO(ReviewBuilder builder) {
+	public ReviewDTO(Builder builder) {
 		this.id = builder.id;
 		this.productId = builder.productId;
 		this.userId = builder.userId;
@@ -55,36 +55,36 @@ public class ReviewDTO {
 		this.comment = comment;
 	} 
 
-	public static class ReviewBuilder {
+	public static class Builder {
 		private String id;
 		private String productId;
 		private String userId;
 		private double rating;
 		private String comment;
 
-		public ReviewBuilder() {}
+		public Builder() {}
 
-		public ReviewBuilder setId(String id) {
+		public Builder setId(String id) {
 			this.id = id;
 			return this;
 		}
 
-		public ReviewBuilder setProductId(String productId) {
+		public Builder setProductId(String productId) {
 			this.productId = productId;
 			return this;
 		}
 
-		public ReviewBuilder setUserId(String userId) {
+		public Builder setUserId(String userId) {
 			this.userId = userId;
 			return this;
 		}
 
-		public ReviewBuilder setRating(double rating) {
+		public Builder setRating(double rating) {
 			this.rating = rating;
 			return this;
 		}
 
-		public ReviewBuilder setComment(String comment) {
+		public Builder setComment(String comment) {
 			this.comment = comment;
 			return this;
 		}

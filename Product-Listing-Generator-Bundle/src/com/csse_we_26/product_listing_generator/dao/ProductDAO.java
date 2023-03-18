@@ -24,5 +24,7 @@ public interface ProductDAO {
     
     public List<Product> getProductsByPage(int pageNum, int pageSize);
 
+	void addProduct(Product product);
+
 
 }
