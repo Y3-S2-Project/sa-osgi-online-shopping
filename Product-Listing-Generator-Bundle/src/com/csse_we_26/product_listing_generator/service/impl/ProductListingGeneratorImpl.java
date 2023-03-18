@@ -3,8 +3,8 @@ package com.csse_we_26.product_listing_generator.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.csse_we_26.product_listing_generator.DTO.ProductDTO;
 import com.csse_we_26.product_listing_generator.dao.impl.ProductDAOImpl;
+import com.csse_we_26.product_listing_generator.DTO.ProductDTO;
 import com.csse_we_26.product_listing_generator.mapper.ProductMapper;
 import com.csse_we_26.product_listing_generator.model.Product;
 import com.csse_we_26.product_listing_generator.service.ProductListingGenerator;
@@ -93,10 +93,6 @@ public class ProductListingGeneratorImpl implements  ProductListingGenerator {
 		return null;
 	}
 
-	@Override
-	public void addProduct(ProductDTO productDTO) {
-		// TODO Auto-generated method stub
-		productDAOImpl.addProduct(mapper.mapToProduct(productDTO));
-	}
+
 
 }

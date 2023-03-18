@@ -31,6 +31,7 @@ public class OrderHistory {
 		this.orderDate = orderDate;
 		this.shippingAddress = shippingAddress;
 	}
+
 	
 	public OrderHistory(Document document) {
 		this.orderNumber = document.getString("orderNumber");
@@ -42,6 +43,10 @@ public class OrderHistory {
 	}
 
 	public String getOderNumber() {
+		return orderNumber;
+	}
+
+	public String getOrderNumber() {
 		return orderNumber;
 	}
 

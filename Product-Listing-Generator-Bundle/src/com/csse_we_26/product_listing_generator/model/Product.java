@@ -7,12 +7,12 @@ import java.util.Map;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 
-import com.csse_we_26.product_listing_generator.DTO.ReviewDTO;
+import com.csse_we_26.reviewgenerator.dto.ReviewDTO;
 
 public class Product {
 	private ObjectId _id;
 	private String pid;
-	private String name;
+    private String name;
     private String description;
     private String category;
     private double price;

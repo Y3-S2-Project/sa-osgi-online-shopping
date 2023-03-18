@@ -7,20 +7,20 @@ import com.csse_we_26.shopping_cart_generator.DTO.ShoppingCartDTO;
 
 public class OrderHistoryDTO {
 	
-	private String oderNumber;
+	private String orderNumber;
 	private String customerId;
 	private ShoppingCartDTO shoppingCartDTO;
 	private OrderStatus orderStatus;
 	private LocalDateTime orderDate;
 	private String shippingAddress;
 	
-	public OrderHistoryDTO(String oderNumber) {
-		this.oderNumber = oderNumber;
+	public OrderHistoryDTO(String orderNumber) {
+		this.orderNumber = orderNumber;
 	}
 	
-	public OrderHistoryDTO(String oderNumber, String customerId, ShoppingCartDTO shoppingCartDTO,
+	public OrderHistoryDTO(String orderNumber, String customerId, ShoppingCartDTO shoppingCartDTO,
 			OrderStatus orderStatus, LocalDateTime orderDate, String shippingAddress) {
-		this.oderNumber = oderNumber;
+		this.orderNumber = orderNumber;
 		this.customerId = customerId;
 		this.shoppingCartDTO = shoppingCartDTO;
 		this.orderStatus = orderStatus;
@@ -28,12 +28,12 @@ public class OrderHistoryDTO {
 		this.shippingAddress = shippingAddress;
 	}
 
-	public String getOderNumber() {
-		return oderNumber;
+	public String getOrderNumber() {
+		return orderNumber;
 	}
 
-	public void setOderNumber(String oderNumber) {
-		this.oderNumber = oderNumber;
+	public void setOrderNumber(String orderNumber) {
+		this.orderNumber = orderNumber;
 	}
 
 	public String getCustomerId() {

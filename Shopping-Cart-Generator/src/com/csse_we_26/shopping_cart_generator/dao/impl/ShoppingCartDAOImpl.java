@@ -22,7 +22,6 @@ public class ShoppingCartDAOImpl implements ShoppingCartDAO {
 		
 		this.database = database;
 		collection = this.database.getCollection(collectionName);
-		mapper = new ShoppingCartMapper();
 	}
 
 	@Override

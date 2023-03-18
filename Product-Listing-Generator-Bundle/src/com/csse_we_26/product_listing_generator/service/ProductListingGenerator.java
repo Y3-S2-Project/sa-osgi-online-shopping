@@ -12,5 +12,5 @@ public interface ProductListingGenerator {
     List<ProductDTO> getProductsSortedByRating();
     List<ProductDTO> searchProductsByKeyword(String keyword);
     List<ProductDTO> getProductsByPage(int pageNum, int pageSize);
-    void addProduct(ProductDTO productDTO);
+
 }

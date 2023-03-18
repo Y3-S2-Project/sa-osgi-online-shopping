@@ -10,7 +10,7 @@ public class OrderHistoryMapper {
 	
     public static OrderHistoryDTO mapToOrderHistoryDTO(OrderHistory orderHistory) {
         return new OrderHistoryDTO(
-                orderHistory.getOderNumber(),
+                orderHistory.getOrderNumber(),
                 orderHistory.getCustomerId(),
                 ShoppingCartMapper.mapToShoppingCartDTO(orderHistory.getShoppingCart()),
                 orderHistory.getOrderStatus(),
@@ -20,8 +20,9 @@ public class OrderHistoryMapper {
     }
 
     public static OrderHistory mapToOderHistory(OrderHistoryDTO orderHistoryDTO) {
+
         return new OrderHistory(
-                orderHistoryDTO.getOderNumber(),
+                orderHistoryDTO.getOrderNumber(),
                 orderHistoryDTO.getCustomerId(),
                 ShoppingCartMapper.mapToShoppingCart(orderHistoryDTO.getShoppingCartDTO()),
                 orderHistoryDTO.getOrderStatus(),
