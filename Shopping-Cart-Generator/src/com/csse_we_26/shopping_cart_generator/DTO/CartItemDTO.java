@@ -1,5 +1,7 @@
 package com.csse_we_26.shopping_cart_generator.DTO;
 
+import org.bson.Document;
+
 import com.csse_we_26.product_listing_generator.DTO.ProductDTO;
 
 public class CartItemDTO {
@@ -9,6 +11,11 @@ public class CartItemDTO {
 	public CartItemDTO(ProductDTO product, int quantity) {
 		this.product = product;
 		this.quantity = quantity;
+	}
+	
+	public CartItemDTO(Document document) {
+		this.quantity = document.getInteger("quantity");
+		this.product = (ProductDTO) document.get("product");
 	}
 
 	public ProductDTO getProduct() {
@@ -25,5 +32,12 @@ public class CartItemDTO {
 
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
+	}
+	
+	public Document toDocument() {
+		Document document = new Document("quantity", quantity)
+				.append("product", product);
+		System.out.println("document" + document.toJson());
+		return document;
 	}
 }

@@ -5,52 +5,57 @@ import java.util.List;
 import com.csse_we_26.product_listing_generator.DTO.ProductDTO;
 import com.csse_we_26.shopping_cart_generator.DTO.CartItemDTO;
 import com.csse_we_26.shopping_cart_generator.DTO.ShoppingCartDTO;
+import com.csse_we_26.shopping_cart_generator.dao.impl.ShoppingCartDAOImpl;
 import com.csse_we_26.shopping_cart_generator.service.ShoppingCartService;
+import com.csse_we_26.shopping_cart_generator.utils.MongoDBUtil;
 
 public class ShoppingCartServiceImpl implements ShoppingCartService {
 
+	private ShoppingCartDAOImpl shoppingCartDAO;
+
+	public ShoppingCartServiceImpl() {
+		System.out.println(MongoDBUtil.getInstance().getDatabase());
+//		this.shoppingCartDAO = new ShoppingCartDAOImpl(MongoDBUtil.getInstance().getDatabase(), "cart");
+	}
+
 	@Override
 	public void addItemToCart(ProductDTO product, int quantity) {
-		// TODO Auto-generated method stub
-		
+		shoppingCartDAO.addItemToCart(product, quantity);
 	}
 
 	@Override
 	public void removeItemFromCart(String productId) {
-		// TODO Auto-generated method stub
-		
+		shoppingCartDAO.removeItemFromCart(productId);
 	}
 
 	@Override
-	public void updateItemQuantity(String prodcutId, int itemQuantity) {
-		// TODO Auto-generated method stub
-		
+	public void updateItemQuantity(String productId, int itemQuantity) {
+		shoppingCartDAO.updateItemQuantity(productId, itemQuantity);
 	}
 
 	@Override
 	public void clearCart() {
-		// TODO Auto-generated method stub
-		
+		shoppingCartDAO.clearCart();
 	}
 
 	@Override
 	public List<CartItemDTO> getAllCartItems() {
-		// TODO Auto-generated method stub
-		return null;
+		return shoppingCartDAO.getAllCartItems();
 	}
 
 	@Override
 	public ShoppingCartDTO getShoppingCartByCustomerId(String customerId) {
-		// TODO Auto-generated method stub
-		return null;
+		System.out.println("getShoppingCartByCustomerId");
+		return shoppingCartDAO.getShoppingCartByCustomerId(customerId);
 	}
 
 	@Override
 	public double calculateTotalPrice() {
-		// TODO Auto-generated method stub
-		return 0;
+		double totalPrice = 0.0;
+		List<CartItemDTO> cartItems = shoppingCartDAO.getAllCartItems();
+		for (CartItemDTO item : cartItems) {
+			totalPrice += item.getProduct().getPrice() * item.getQuantity();
+		}
+		return totalPrice;
 	}
-
-	
-
 }

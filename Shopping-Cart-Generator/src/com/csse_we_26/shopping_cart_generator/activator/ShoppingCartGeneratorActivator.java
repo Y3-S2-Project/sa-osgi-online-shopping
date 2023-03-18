@@ -24,9 +24,10 @@ public class ShoppingCartGeneratorActivator implements BundleActivator {
 		System.out.println("Shopping Cart Generator bundle started successfully...");
 		
 		ShoppingCart cart = new ShoppingCart();
+		System.out.println(cart.getItems().toString());
 //		ShoppingCartMapper mapper = new ShoppingCartMapper();
-		shoppingCartService.addItemToCart(new ProductDTO.Builder().setId("PID009").build(), 1);
-		shoppingCartService.addItemToCart(new ProductDTO.Builder().setId("PID010").build(), 3);
+//		shoppingCartService.addItemToCart(new ProductDTO.Builder().setId("PID009").build(), 1);
+//		shoppingCartService.addItemToCart(new ProductDTO.Builder().setId("PID010").build(), 3);
 //		System.out.println(shoppingCartService.getShoppingCartByCustomerId("CID001"));
 		
 	}

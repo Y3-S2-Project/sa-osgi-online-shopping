@@ -49,5 +49,21 @@ public class ShoppingCartMapper {
     	ShoppingCart shoppingCart = new ShoppingCart();
     	return shoppingCart;
     }
+    
+    public static Document mapToDocument(ShoppingCart shoppingCart) {
+    	return shoppingCart.toDocument();
+    }
+    
+    public static Document mapToDocument(CartItem cartItem) {
+    	return cartItem.toDocument();
+    }
+    
+    public static ShoppingCartDTO mapToShoppingCartDTO(Document document) {
+    	return new ShoppingCartDTO(document);
+    }
+    
+    public static CartItemDTO mapToCartItemDTO(Document document) {
+    	return new CartItemDTO(document);
+    }
 	
 }

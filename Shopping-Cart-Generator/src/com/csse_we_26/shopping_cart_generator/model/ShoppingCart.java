@@ -44,5 +44,10 @@ public class ShoppingCart {
 		this.customerId = customerId;
 	}	
 	
-	
+	public Document toDocument() {
+		Document document = new Document("customerId", customerId)
+				.append("items", items);
+		System.out.println("document" + document.toJson());
+		return document;
+	}
 }
