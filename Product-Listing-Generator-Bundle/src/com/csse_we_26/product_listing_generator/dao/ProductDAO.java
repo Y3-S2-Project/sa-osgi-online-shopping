@@ -2,7 +2,13 @@ package com.csse_we_26.product_listing_generator.dao;
 
 import java.util.List;
 
-import mongodb_service.Product;
+import com.csse_we_26.product_listing_generator.model.Product;
+
+
+
+
+
+
 
 public interface ProductDAO {
     
@@ -16,15 +22,10 @@ public interface ProductDAO {
     
     public List<Product> getProductsSortedByPrice();
     
-    public List<Product> getProductsSortedByPopularity();
-    
     public List<Product> getProductsSortedByRating();
     
     public List<Product> searchProductsByKeyword(String keyword);
     
-    public List<Product> getProductsByPage(int pageNum, int pageSize);
-
-	void addProduct(Product product);
 
 
 }

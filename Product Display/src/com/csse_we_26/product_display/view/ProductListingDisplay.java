@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 import com.csse_we_26.product_listing_generator.service.ProductListingGenerator;
 
-import mongodb_service.ProductDTO;
+
 
 
 public class ProductListingDisplay {
@@ -40,10 +40,6 @@ public class ProductListingDisplay {
     }
 
 
-
-    public void displayProductsByPage(int pageNum, int pageSize) {
-    	productView.displayProductsByPage(pageNum,pageSize);
-    }
     public void dipalyUI() {
     	boolean isContinuing = true;
 
@@ -60,8 +56,7 @@ public class ProductListingDisplay {
             System.out.println("4. Sort product by price range");
             System.out.println("5. Sort product by price");
             System.out.println("6. Sort product by rating");
-            System.out.println("7. Sort Product by page");
-            System.out.println("8. Quit");
+            System.out.println("7. Quit");
             
             System.out.println("");
 
@@ -123,25 +118,9 @@ public class ProductListingDisplay {
                 case 6:
                     displayProductsSortedByRating();
                     
-                    break;
-                case 7:
-                	 // Get input from the user
-                    System.out.print("Enter the min price and max price ranges (EX :-  90 95 ): ");
-                    String inputs = scanner.nextLine();
-                    
-                     // Split the input string into two substrings using the split() method
-                    String[] part = inputs.split(" ");
-                    
-                    // Convert the two substrings into double values using the Double.parseDouble() method
-                    int pageNum = Integer.getInteger(part[0]);
-                    int pageSize = Integer.getInteger(part[1]);
-                    
-                	displayProductsByPage(pageNum, pageSize);
-                	
-                	
-                    break;     
+                    break;    
 
-                case 8 :
+                case 7 :
                     isContinuing = false;
 
                     break;

@@ -9,7 +9,6 @@ Automatic-Module-Name: Product.Display
 Import-Package: 
  com.csse_we_26.product_listing_generator.service,
  org.osgi.framework;version="1.3.0"
-Require-Bundle: MongoDB-Service;bundle-version="1.0.0",
- Review-Generator;bundle-version="1.0.0",
+Require-Bundle: Review-Generator;bundle-version="1.0.0",
  Product-Listing-Generator-Bundle;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy

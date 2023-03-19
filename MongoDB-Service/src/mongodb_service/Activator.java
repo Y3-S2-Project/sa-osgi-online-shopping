@@ -8,23 +8,20 @@ import org.osgi.framework.ServiceRegistration;
 
 public class Activator implements BundleActivator {
 
-	private ServiceRegistration registration;
+
+	private ServiceRegistration mongoDBServiceRegistration;
+
 	public void start(BundleContext bundleContext) throws Exception {
-		System.out.println("MongoDB Service started");
-	    MongoService mongoService =new MongoServiceImpl();
-	   
-        System.out.println(mongoService.getDatabase().getName());
-        
-		registration = bundleContext.registerService(
-				MongoService.class.getName(), 
-				mongoService, 
-				null);
-		System.out.println(mongoService.getDatabase().getClass());
+	   System.out.println("MongoDB sercice is runnig");
+	   MongoDBService mongoDBService = new  MongoDBServiceImpl();
 		
+	   mongoDBServiceRegistration = bundleContext.registerService( MongoDBService.class.getName(),
+			   mongoDBService, null);
 	}
 
 	public void stop(BundleContext bundleContext) throws Exception {
-		registration.unregister();
+		   System.out.println("MongoDB sercice is stopped");
+
 	}
 
 }

@@ -9,6 +9,8 @@ import org.bson.Document;
 import org.bson.conversions.Bson;
 
 import com.csse_we_26.product_listing_generator.dao.ProductDAO;
+import com.csse_we_26.product_listing_generator.mapper.ProductMapper;
+import com.csse_we_26.product_listing_generator.model.Product;
 import com.mongodb.BasicDBObject;
 import com.mongodb.MongoClient;
 import com.mongodb.client.FindIterable;
@@ -17,8 +19,8 @@ import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Indexes;
 
-import mongodb_service.Product;
-import mongodb_service.ProductMapper;
+
+
 
 public class ProductDAOImpl implements ProductDAO {
     
@@ -37,18 +39,25 @@ public class ProductDAOImpl implements ProductDAO {
     
     @Override
     public Product getProductById(String id) {
-        BasicDBObject query = new BasicDBObject("pid", id);
-        FindIterable<Document> iterable = collection.find(query);
-        Document doc = iterable.first();
-        return mapper.mapToProduct(doc);
+
+        try {
+			Document doc = (Document) collection.find(Filters.eq("pid", id)).first();
+
+			return mapper.mapToProduct(doc);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			
+			System.out.println();
+			return null;
+		}
     }
     
     @Override
     public List<Product> getProductsByCategory(String category) {
-        BasicDBObject query = new BasicDBObject("category", category);
-        FindIterable<Document> iterable = collection.find(query);
+
         List<Product> products = new ArrayList<>();
-        for (Document doc : iterable) {
+        for (Document doc : collection.find(Filters.eq("category", category))) {
             products.add(mapper.mapToProduct(doc));
         }
         return products;
@@ -78,16 +87,7 @@ public class ProductDAOImpl implements ProductDAO {
         return products;
     }
     
-    @Override
-    public List<Product> getProductsSortedByPopularity() {
-        BasicDBObject sort = new BasicDBObject("popularity", -1);
-        FindIterable<Document> iterable = collection.find().sort(sort);
-        List<Product> products = new ArrayList<>();
-        for (Document doc : iterable) {
-            products.add(mapper.mapToProduct(doc));
-        }
-        return products;
-    }
+
     
     @Override
     public List<Product> getProductsSortedByRating() {
@@ -121,18 +121,5 @@ public class ProductDAOImpl implements ProductDAO {
         return products;
     }
 
-	@Override
-	public List<Product> getProductsByPage(int pageNum, int pageSize) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-
-
-	   
-    @Override
-    public void addProduct(Product product) {
-        Document doc = mapper.mapToDocument(product);
-        collection.insertOne(doc);
-    }
 }

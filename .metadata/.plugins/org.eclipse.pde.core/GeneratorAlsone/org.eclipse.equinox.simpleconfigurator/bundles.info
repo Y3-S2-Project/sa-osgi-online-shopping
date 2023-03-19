@@ -1,7 +1,8 @@
 #encoding=UTF-8
 #version=1
-MongoDB-Service,1.0.0.qualifier,file:/E:/OSGI/sa-osgi-online-shopping/MongoDB-Service/,1,true
-Review-Generator,1.0.0.qualifier,file:/E:/OSGI/sa-osgi-online-shopping/Review-Generator/,2,true
+Product-Listing-Generator-Bundle,1.0.0.qualifier,file:/E:/OSGI/sa-osgi-online-shopping/Product-Listing-Generator-Bundle/,2,true
+Product_Display,1.0.0.qualifier,file:/E:/OSGI/sa-osgi-online-shopping/Product%20Display/,3,true
+Review-Generator,1.0.0.qualifier,file:/E:/OSGI/sa-osgi-online-shopping/Review-Generator/,1,true
 bcpg,1.72.0,file:/C:/Users/chama/.p2/pool/plugins/bcpg_1.72.0.jar,4,true
 bcprov,1.72.0,file:/C:/Users/chama/.p2/pool/plugins/bcprov_1.72.0.jar,4,true
 biz.aQute.bnd.util,6.3.1.202206071316,file:/C:/Users/chama/.p2/pool/plugins/biz.aQute.bnd.util_6.3.1.202206071316.jar,4,true

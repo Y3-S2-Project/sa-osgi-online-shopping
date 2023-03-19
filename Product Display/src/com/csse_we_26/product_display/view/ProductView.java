@@ -2,9 +2,10 @@ package com.csse_we_26.product_display.view;
 
 import java.util.List;
 
+import com.csse_we_26.product_listing_generator.dto.ProductDTO;
 import com.csse_we_26.product_listing_generator.service.ProductListingGenerator;
 
-import mongodb_service.ProductDTO;
+
 
 public class ProductView {
 
@@ -24,7 +25,7 @@ public class ProductView {
             System.out.println("Product Rating: " + product.getRating());
      
             System.out.println("Product Category: " + product.getCategory());
-            System.out.println("Product reviews"+ product.getReviews().toString());
+          //  System.out.println("Product reviews"+ product.getReviews().toString());
         } else {
             System.out.println("Product not found: " + productId);
         }
@@ -90,15 +91,5 @@ public class ProductView {
         }
     }
 
-    public void displayProductsByPage(int pageNum, int pageSize) {
-        List<ProductDTO> products = productListingGenerator.getProductsByPage(pageNum, pageSize);
-        if (products.isEmpty()) {
-            System.out.println("No products found");
-        } else {
-            System.out.println("Products on page " + pageNum + ", page size " + pageSize + ":");
-            for (ProductDTO product : products) {
-                System.out.println(product.getName() + " (" + product.getPrice() + ")");
-            }
-        }
-    }
+
 }

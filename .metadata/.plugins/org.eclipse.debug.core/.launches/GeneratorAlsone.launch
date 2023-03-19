@@ -10,11 +10,7 @@
     <booleanAttribute key="default" value="true"/>
     <booleanAttribute key="default_auto_start" value="true"/>
     <intAttribute key="default_start_level" value="4"/>
-    <setAttribute key="deselected_workspace_bundles">
-        <setEntry value="Product-Listing-Generator-Bundle"/>
-        <setEntry value="Product_Display"/>
-        <setEntry value="Review-Aggregator"/>
-    </setAttribute>
+    <setAttribute key="deselected_workspace_bundles"/>
     <booleanAttribute key="includeOptional" value="true"/>
     <booleanAttribute key="org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING" value="false"/>
     <booleanAttribute key="org.eclipse.jdt.launching.ATTR_ATTR_USE_ARGFILE" value="false"/>
@@ -945,8 +941,9 @@
         <setEntry value="slf4j.api@default:default"/>
     </setAttribute>
     <setAttribute key="selected_workspace_bundles">
-        <setEntry value="MongoDB-Service@1:true"/>
-        <setEntry value="Review-Generator@2:default"/>
+        <setEntry value="Product-Listing-Generator-Bundle*1.0.0.qualifier@2:true"/>
+        <setEntry value="Product_Display*1.0.0.qualifier@3:true"/>
+        <setEntry value="Review-Generator@1:true"/>
     </setAttribute>
     <booleanAttribute key="show_selected_only" value="false"/>
     <booleanAttribute key="tracing" value="false"/>

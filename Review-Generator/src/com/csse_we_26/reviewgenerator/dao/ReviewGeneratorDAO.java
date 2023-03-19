@@ -2,17 +2,17 @@ package com.csse_we_26.reviewgenerator.dao;
 
 import java.util.List;
 
-import mongodb_service.Review;
+import org.bson.Document;
+
+
+
+
+
+
 
 public interface ReviewGeneratorDAO {
 
-	List<Review> getAllReviews();
 
-	boolean updateReview(Review review);
-
-	boolean deleteReview(String reviewId);
-
-	boolean addReview(Review review);
-	public List<Review> getReviewByProductId(String productId);
+	public List<Document> getReviewByProductId(String productId);
 
 }
