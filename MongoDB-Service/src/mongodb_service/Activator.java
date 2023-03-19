@@ -12,7 +12,9 @@ public class Activator implements BundleActivator {
 	public void start(BundleContext bundleContext) throws Exception {
 		System.out.println("MongoDB Service started");
 	    MongoService mongoService =new MongoServiceImpl();
+	   
         System.out.println(mongoService.getDatabase().getName());
+        
 		registration = bundleContext.registerService(
 				MongoService.class.getName(), 
 				mongoService, 

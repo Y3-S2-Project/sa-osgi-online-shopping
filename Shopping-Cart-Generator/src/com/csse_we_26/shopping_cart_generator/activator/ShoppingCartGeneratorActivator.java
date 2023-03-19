@@ -2,22 +2,30 @@ package com.csse_we_26.shopping_cart_generator.activator;
 
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
+import org.osgi.framework.ServiceReference;
 import org.osgi.framework.ServiceRegistration;
 
 
 import com.csse_we_26.shopping_cart_generator.service.ShoppingCartService;
 import com.csse_we_26.shopping_cart_generator.service.impl.ShoppingCartServiceImpl;
 
+import mongodb_service.MongoService;
 import mongodb_service.ShoppingCart;
 import mongodb_service.ShoppingCartMapper;
 
 public class ShoppingCartGeneratorActivator implements BundleActivator {
 
 	private ServiceRegistration shoppingCartGeneratorRegistration;
+	private ServiceReference<MongoService> mongoServiceReference;
 
 	public void start(BundleContext bundleContext) throws Exception {
 		System.out.println("Starting Shopping Cart Generator bundle...");
-		ShoppingCartService shoppingCartService = new ShoppingCartServiceImpl();
+		
+		mongoServiceReference =  bundleContext.getServiceReference(MongoService.class);
+		MongoService mongoService = bundleContext.getService(mongoServiceReference);
+		
+		
+		ShoppingCartService shoppingCartService = new ShoppingCartServiceImpl(mongoService.getDatabase());
 		
 		shoppingCartGeneratorRegistration = bundleContext.registerService(ShoppingCartService.class.getName(),
 				shoppingCartService, null);

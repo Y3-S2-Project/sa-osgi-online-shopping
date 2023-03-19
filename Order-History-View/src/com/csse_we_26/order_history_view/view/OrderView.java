@@ -4,20 +4,23 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
-import com.csse_we_26.order_history_generator.DTO.OrderHistoryDTO;
-import com.csse_we_26.order_history_generator.enumeration.OrderStatus;
 import com.csse_we_26.order_history_generator.service.OrderHistoryService;
-import com.csse_we_26.shopping_cart_generator.DTO.CartItemDTO;
-import com.csse_we_26.shopping_cart_generator.DTO.ShoppingCartDTO;
+
 import com.csse_we_26.shopping_cart_generator.service.ShoppingCartService;
 import com.csse_we_26.shopping_cart_generator.service.impl.ShoppingCartServiceImpl;
+
+import mongodb_service.CartItemDTO;
+import mongodb_service.OrderHistoryDTO;
+import mongodb_service.OrderStatus;
+import mongodb_service.ShoppingCartDTO;
 
 public class OrderView {
 
 	private OrderHistoryService orderHistoryService;
-
-	public void setOrderHistoryService(OrderHistoryService orderHistoryService) {
+	private ShoppingCartService shoppingCartService ;
+	public void setOrderHistoryService(OrderHistoryService orderHistoryService,ShoppingCartService shoppingCartService) {
 		this.orderHistoryService = orderHistoryService;
+		this.shoppingCartService= shoppingCartService;
 	}
 
 	private static String generateOrderNumber() {
@@ -86,7 +89,7 @@ public class OrderView {
 
 	public void createOrder(String customerId, String shippingAddress) {
 		// Get the shopping cart by customerID
-		ShoppingCartService shoppingCartService = new ShoppingCartServiceImpl();
+
 		ShoppingCartDTO shoppingCartDTO = shoppingCartService.getShoppingCartByCustomerId(customerId);
 
 		// Check if the shopping cart belongs to the customer

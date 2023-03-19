@@ -6,10 +6,13 @@ import org.osgi.framework.ServiceReference;
 
 import com.csse_we_26.order_history_generator.service.OrderHistoryService;
 import com.csse_we_26.order_history_view.view.OrderHistoryView;
+import com.csse_we_26.shopping_cart_generator.service.ShoppingCartService;
 
 public class OrderHistoryViewActivator implements BundleActivator {
 
 	private ServiceReference<OrderHistoryService> orderHistoryGeneratorServiceReference;
+	
+	private ServiceReference<ShoppingCartService> shoppingCartServiceReference;
 	private OrderHistoryView orderHistoryView;
 	
 	public void start(BundleContext bundleContext) throws Exception {
@@ -19,7 +22,10 @@ public class OrderHistoryViewActivator implements BundleActivator {
 		orderHistoryGeneratorServiceReference = bundleContext.getServiceReference(OrderHistoryService.class);
 		OrderHistoryService orderHistoryService = bundleContext.getService(orderHistoryGeneratorServiceReference);
 		
-		orderHistoryView = new OrderHistoryView(orderHistoryService);
+		shoppingCartServiceReference =  bundleContext.getServiceReference(ShoppingCartService.class);
+		ShoppingCartService shoppingCartService = bundleContext.getService(shoppingCartServiceReference);
+		
+		orderHistoryView = new OrderHistoryView(orderHistoryService ,shoppingCartService);
 		orderHistoryView.displayUI();
 	}
 

@@ -26,7 +26,7 @@ public class ReviewGeneratorActivator implements BundleActivator {
 		mongoServiceReference =  bundleContext.getServiceReference(MongoService.class);
 
 		MongoService mongoService = bundleContext.getService(mongoServiceReference);
-
+        
 		MongoDatabase db = (MongoDatabase)mongoService.getDatabase();
 		System.out.println(db instanceof MongoDatabase);
 		

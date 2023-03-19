@@ -6,6 +6,7 @@ import java.util.List;
 import com.csse_we_26.order_history_generator.service.OrderHistoryService;
 import com.csse_we_26.order_history_generator.util.MongoDBUtil;
 import com.csse_we_26.order_history_generatoy.dao.impl.OrderHistoryDAOImpl;
+import com.mongodb.client.MongoDatabase;
 
 import mongodb_service.OrderHistoryDTO;
 
@@ -13,7 +14,7 @@ public class OrderHistoryServiceImpl implements OrderHistoryService {
 
 	private OrderHistoryDAOImpl orderHistoryDAOImpl = null;
 
-	public OrderHistoryServiceImpl() {
+	public OrderHistoryServiceImpl(MongoDatabase database) {
 		System.out.println("check one");
 		System.out.println(MongoDBUtil.getInstance().getDatabase());
 //		orderHistoryDAOImpl = new OrderHistoryDAOImpl(MongoDBUtil.getInstance().getDatabase(), "orders");

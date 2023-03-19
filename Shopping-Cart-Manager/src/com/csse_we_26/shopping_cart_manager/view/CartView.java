@@ -2,11 +2,11 @@ package com.csse_we_26.shopping_cart_manager.view;
 
 import java.util.ArrayList;
 
-import com.csse_we_26.product_listing_generator.DTO.ProductDTO;
+import mongodb_service.CartItemDTO;
+import mongodb_service.ProductDTO;
+import mongodb_service.ShoppingCartDTO;
 import com.csse_we_26.product_listing_generator.service.ProductListingGenerator;
-import com.csse_we_26.product_listing_generator.service.impl.ProductListingGeneratorImpl;
-import com.csse_we_26.shopping_cart_generator.DTO.CartItemDTO;
-import com.csse_we_26.shopping_cart_generator.DTO.ShoppingCartDTO;
+
 import com.csse_we_26.shopping_cart_generator.service.ShoppingCartService;
 
 public class CartView {
@@ -14,8 +14,9 @@ public class CartView {
 	private ShoppingCartService shoppingCartService;
 	private ProductListingGenerator productListingGenerator;
 
-	public void setShoppingCartService(ShoppingCartService shoppingCartService) {
+	public void setShoppingCartService(ShoppingCartService shoppingCartService,ProductListingGenerator productListingGenerator) {
 		this.shoppingCartService = shoppingCartService;
+		this.productListingGenerator =productListingGenerator;
 	}
 
 	public void displayShoppingCartByCustomerId(String customerId) {

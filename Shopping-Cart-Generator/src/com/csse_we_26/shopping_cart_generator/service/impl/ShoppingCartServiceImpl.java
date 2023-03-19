@@ -5,7 +5,8 @@ import java.util.List;
 import mongodb_service.ProductDTO;
 import com.csse_we_26.shopping_cart_generator.dao.impl.ShoppingCartDAOImpl;
 import com.csse_we_26.shopping_cart_generator.service.ShoppingCartService;
-import com.csse_we_26.shopping_cart_generator.utils.MongoDBUtil;
+
+import com.mongodb.client.MongoDatabase;
 
 import mongodb_service.CartItemDTO;
 import mongodb_service.ShoppingCartDTO;
@@ -14,8 +15,9 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 
 	private ShoppingCartDAOImpl shoppingCartDAO;
 
-	public ShoppingCartServiceImpl() {
-		System.out.println(MongoDBUtil.getInstance().getDatabase());
+	public ShoppingCartServiceImpl(MongoDatabase mongoDatabase) {
+		System.out.println(mongoDatabase.getName());
+		
 //		this.shoppingCartDAO = new ShoppingCartDAOImpl(MongoDBUtil.getInstance().getDatabase(), "cart");
 	}
 
