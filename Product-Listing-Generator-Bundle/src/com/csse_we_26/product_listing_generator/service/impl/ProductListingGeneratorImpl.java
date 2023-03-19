@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.csse_we_26.product_listing_generator.dao.impl.ProductDAOImpl;
-import com.csse_we_26.product_listing_generator.dto.ProductDTO;
-import com.csse_we_26.product_listing_generator.mapper.ProductMapper;
-import com.csse_we_26.product_listing_generator.model.Product;
 import com.csse_we_26.product_listing_generator.service.ProductListingGenerator;
 
 import com.csse_we_26.reviewgenerator.service.ReviewGeneratorService;
 
 import mongodb_service.MongoService;
+import mongodb_service.Product;
+import mongodb_service.ProductDTO;
+import mongodb_service.ProductMapper;
 
 public class ProductListingGeneratorImpl implements  ProductListingGenerator {
 	private ProductDAOImpl productDAOImpl=null;

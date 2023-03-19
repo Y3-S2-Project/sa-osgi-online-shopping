@@ -10,18 +10,13 @@ import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.component.annotations.ReferenceCardinality;
 import org.osgi.service.component.annotations.ReferencePolicy;
 
-
-import com.csse_we_26.reviewgenerator.dto.ReviewDTO;
-
-
-
 import com.csse_we_26.reviewgenerator.dao.impl.ReviewGeneratorImplDAO;
-
-import com.csse_we_26.reviewgenerator.mapper.ReviewMapper;
-import com.csse_we_26.reviewgenerator.model.Review;
 import com.csse_we_26.reviewgenerator.service.ReviewGeneratorService;
 
 import mongodb_service.MongoService;
+import mongodb_service.Review;
+import mongodb_service.ReviewDTO;
+import mongodb_service.ReviewMapper;
 
 
 @Component(immediate = true)
@@ -30,7 +25,7 @@ public class ReviewGeneratorServiceImpl implements ReviewGeneratorService {
 	private ReviewMapper mapper;
 	public ReviewGeneratorServiceImpl(MongoService mongoService) {
 		try {
-			reviewGeneratorDAOImpl= new ReviewGeneratorImplDAO(mongoService.getDatabase(),"review");
+			reviewGeneratorDAOImpl= new ReviewGeneratorImplDAO(mongoService.getDatabase(),"reviews");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			System.out.println("Yeah I am here");;

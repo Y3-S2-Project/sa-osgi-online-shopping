@@ -2,7 +2,7 @@ package com.csse_we_26.product_listing_generator.dao;
 
 import java.util.List;
 
-import com.csse_we_26.product_listing_generator.model.Product;
+import mongodb_service.Product;
 
 public interface ProductDAO {
     

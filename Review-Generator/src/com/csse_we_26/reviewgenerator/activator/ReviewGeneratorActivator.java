@@ -1,4 +1,4 @@
-package com.csse_we_26.reviewgenerator;
+package com.csse_we_26.reviewgenerator.activator;
 
 import java.util.List;
 
@@ -12,6 +12,7 @@ import com.csse_we_26.reviewgenerator.service.impl.ReviewGeneratorServiceImpl;
 
 
 import mongodb_service.MongoService;
+import mongodb_service.MongoServiceImpl;
 
 public class ReviewGeneratorActivator implements BundleActivator {
 	
@@ -21,15 +22,15 @@ public class ReviewGeneratorActivator implements BundleActivator {
 	@Override
 	public void start(BundleContext bundleContext) throws Exception {
 		System.out.println("Starting Review Generator bundle...");
-		System.out.println("I was here asloo");
+
 		mongoServiceReference =  bundleContext.getServiceReference(MongoService.class);
-		System.out.println("I was here");
-		MongoService mongoService = bundleContext.getService(mongoServiceReference);
+
+		MongoService mongoService = (MongoServiceImpl)bundleContext.getService(mongoServiceReference);
 		
-		System.out.println("I was here");
+		System.out.println(mongoService.getDatabase().getName());
 		
 		ReviewGeneratorService reviewGeneratorService = new ReviewGeneratorServiceImpl(mongoService);
-		System.out.println("This was the issue");
+
 		registration = bundleContext.registerService(
 				ReviewGeneratorService.class.getName(), 
 				reviewGeneratorService, 

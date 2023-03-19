@@ -1,9 +1,9 @@
-package com.csse_we_26.product_listing_generator.dto;
+package mongodb_service;
 
 import java.util.List;
 import java.util.Map;
 
-import com.csse_we_26.reviewgenerator.dto.ReviewDTO;
+
 
 public class ProductDTO {
     private String pid;

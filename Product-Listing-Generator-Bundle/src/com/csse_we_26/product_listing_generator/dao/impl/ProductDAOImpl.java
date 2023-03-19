@@ -9,9 +9,6 @@ import org.bson.Document;
 import org.bson.conversions.Bson;
 
 import com.csse_we_26.product_listing_generator.dao.ProductDAO;
-import com.csse_we_26.product_listing_generator.mapper.ProductMapper;
-import com.csse_we_26.product_listing_generator.model.Product;
-
 import com.mongodb.BasicDBObject;
 import com.mongodb.MongoClient;
 import com.mongodb.client.FindIterable;
@@ -19,6 +16,9 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Indexes;
+
+import mongodb_service.Product;
+import mongodb_service.ProductMapper;
 
 public class ProductDAOImpl implements ProductDAO {
     

@@ -2,7 +2,7 @@ package com.csse_we_26.reviewgenerator.service;
 
 import java.util.List;
 
-import com.csse_we_26.reviewgenerator.dto.ReviewDTO;
+import mongodb_service.ReviewDTO;
 
 
 

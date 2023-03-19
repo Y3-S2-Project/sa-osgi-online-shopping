@@ -3,12 +3,14 @@ package com.csse_we_26.reviewgenerator.dao.impl;
 import java.util.ArrayList;
 import java.util.List;
 import com.mongodb.client.model.Filters;
+
+import mongodb_service.Review;
+import mongodb_service.ReviewMapper;
+
 import org.bson.Document;
 
 
 import com.csse_we_26.reviewgenerator.dao.ReviewGeneratorDAO;
-import com.csse_we_26.reviewgenerator.mapper.ReviewMapper;
-import com.csse_we_26.reviewgenerator.model.Review;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 

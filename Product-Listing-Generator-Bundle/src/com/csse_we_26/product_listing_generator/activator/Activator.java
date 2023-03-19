@@ -5,12 +5,12 @@ import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
 import org.osgi.framework.ServiceRegistration;
 
-import com.csse_we_26.product_listing_generator.dto.ProductDTO;
-import com.csse_we_26.product_listing_generator.mapper.ProductMapper;
 import com.csse_we_26.product_listing_generator.service.ProductListingGenerator;
 import com.csse_we_26.product_listing_generator.service.impl.ProductListingGeneratorImpl;
 import com.csse_we_26.reviewgenerator.service.ReviewGeneratorService;
 import mongodb_service.MongoService;
+import mongodb_service.ProductDTO;
+import mongodb_service.ProductMapper;
 
 
 public class Activator implements BundleActivator {

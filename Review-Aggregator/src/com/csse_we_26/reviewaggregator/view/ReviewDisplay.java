@@ -4,7 +4,8 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.csse_we_26.reviewaggregator.service.ReviewAggregatorService;
-import com.csse_we_26.reviewgenerator.model.Review;
+
+import mongodb_service.Review;
 
 public class ReviewDisplay {
 
