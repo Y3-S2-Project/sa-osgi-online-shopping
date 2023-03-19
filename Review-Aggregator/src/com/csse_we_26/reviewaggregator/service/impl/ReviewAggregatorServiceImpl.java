@@ -3,7 +3,7 @@ package com.csse_we_26.reviewaggregator.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.csse_we_26.product_listing_generator.dto.ReviewDTO;
+
 import com.csse_we_26.reviewaggregator.service.ReviewAggregatorService;
 import com.csse_we_26.reviewgenerator.service.ReviewGeneratorService;
 
