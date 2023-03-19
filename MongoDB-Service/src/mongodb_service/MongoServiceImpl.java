@@ -18,7 +18,7 @@ public class MongoServiceImpl implements MongoService {
 	    private final MongoDatabase  mongoDatabase;
 	    private final MongoCollection<Document> mongoCollection;
 
-	    private MongoServiceImpl() {
+	    public MongoServiceImpl() {
 	    	System.out.println("Constructor");
 	        MongoClientURI uri = new MongoClientURI(MONGO_URI);
 	    	System.out.println("Mongo Clien URI");
@@ -51,10 +51,10 @@ public class MongoServiceImpl implements MongoService {
 	        mongoClient.close();
 	    }
 
-		@Override
-		public MongoDatabase getDatabase() {
-			// TODO Auto-generated method stub
-			return mongoDatabase;
-		}
+	    @Override
+	    public MongoDatabase getDatabase() {
+	        System.out.println("This method is called to get database instance");
+	        return this.mongoDatabase != null ? this.mongoDatabase : null;
+	    }
 
 }

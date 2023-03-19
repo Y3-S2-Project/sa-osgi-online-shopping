@@ -9,10 +9,10 @@ import org.osgi.framework.ServiceRegistration;
 
 import com.csse_we_26.reviewgenerator.service.ReviewGeneratorService;
 import com.csse_we_26.reviewgenerator.service.impl.ReviewGeneratorServiceImpl;
-
+import com.mongodb.client.MongoDatabase;
 
 import mongodb_service.MongoService;
-import mongodb_service.MongoServiceImpl;
+
 
 public class ReviewGeneratorActivator implements BundleActivator {
 	
@@ -25,9 +25,10 @@ public class ReviewGeneratorActivator implements BundleActivator {
 
 		mongoServiceReference =  bundleContext.getServiceReference(MongoService.class);
 
-		MongoService mongoService = (MongoServiceImpl)bundleContext.getService(mongoServiceReference);
-		
-		System.out.println(mongoService.getDatabase().getName());
+		MongoService mongoService = bundleContext.getService(mongoServiceReference);
+
+		MongoDatabase db = (MongoDatabase)mongoService.getDatabase();
+		System.out.println(db instanceof MongoDatabase);
 		
 		ReviewGeneratorService reviewGeneratorService = new ReviewGeneratorServiceImpl(mongoService);
 
