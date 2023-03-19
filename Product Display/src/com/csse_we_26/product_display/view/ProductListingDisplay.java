@@ -61,7 +61,7 @@ public class ProductListingDisplay {
             System.out.println("");
 
             // Read the user's choice
-            System.out.print("Enter your choice (1-9): ");
+            System.out.print("Enter your choice (1-7): ");
             Scanner scanner= new Scanner(System.in);
 			int choice = scanner.nextInt();
             scanner.nextLine(); // Consume the newline character

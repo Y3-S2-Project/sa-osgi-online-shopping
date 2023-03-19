@@ -31,18 +31,29 @@ public class ProductMapper {
     	
     	// list=null;
     	if(list !=null) {
+    		
+    		List<ReviewDTO> reviewList = new ArrayList<ReviewDTO>();
     		System.out.println(list.toString());
-    		List<ReviewDTO> reviewList = new ArrayList<>();
-    		for (Document doc : list) {
-    			
-    			reviewList.add(mapper.mapToReviewDTO(doc));
-    			
-    		}
-    	      productDTO = new ProductDTO.Builder().
-    	            setRating(product.getRating()).setPrice(product.getPrice()).
-    	            setId(product.getId()).setCategory(product.getCategory()).
-    	            setDescription(product.getDescription()).
-    	            setName(product.getName()).setReviews(reviewList).build();
+    		try {
+    			for (Object obj : list) {
+    				  System.out.println(obj.getClass());
+    				  
+    			    if (obj instanceof Document) {
+    			    	System.out.println(obj.getClass());
+    			        Document doc = (Document) obj;
+    			        System.out.println(doc.getClass());
+    			        reviewList.add(mapper.mapToReviewDTO(doc));
+    			    }
+    			}
+				  productDTO = new ProductDTO.Builder().
+				        setRating(product.getRating()).setPrice(product.getPrice()).
+				        setId(product.getId()).setCategory(product.getCategory()).
+				        setDescription(product.getDescription()).
+				        setName(product.getName()).setReviews(reviewList).build();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
     	}else {
     		  productDTO = new ProductDTO.Builder().
       	            setRating(product.getRating()).setPrice(product.getPrice()).
