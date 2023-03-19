@@ -21,11 +21,21 @@ public class ProductMapper {
     }
 
     public ProductDTO mapToProductDTO(Product product, List<ReviewDTO> list) {
-        ProductDTO productDTO = new ProductDTO.Builder().
-        setRating(product.getRating()).setPrice(product.getPrice()).
-        setId(product.getId()).setCategory(product.getCategory()).
-        setDescription(product.getDescription()).
-        setName(product.getName()).setReviews(list).build();
+    	  ProductDTO productDTO =null;
+    	if(list !=null) {
+    	  productDTO = new ProductDTO.Builder().
+    	            setRating(product.getRating()).setPrice(product.getPrice()).
+    	            setId(product.getId()).setCategory(product.getCategory()).
+    	            setDescription(product.getDescription()).
+    	            setName(product.getName()).setReviews(list).build();
+    	}else {
+    		  productDTO = new ProductDTO.Builder().
+      	            setRating(product.getRating()).setPrice(product.getPrice()).
+      	            setId(product.getId()).setCategory(product.getCategory()).
+      	            setDescription(product.getDescription()).
+      	            setName(product.getName()).build();
+    	}
+    
 
 
         return productDTO;

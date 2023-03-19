@@ -6,14 +6,15 @@ import java.util.List;
 
 import org.bson.Document;
 
-import com.csse_we_26.order_history_generator.DTO.OrderHistoryDTO;
 import com.csse_we_26.order_history_generator.dao.OrderHistoryDAO;
-import com.csse_we_26.order_history_generator.mapper.OrderHistoryMapper;
-import com.csse_we_26.order_history_generator.model.OrderHistory;
 import com.mongodb.BasicDBObject;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+
+import mongodb_service.OrderHistory;
+import mongodb_service.OrderHistoryDTO;
+import mongodb_service.OrderHistoryMapper;
 
 public class OrderHistoryDAOImpl implements OrderHistoryDAO {
 

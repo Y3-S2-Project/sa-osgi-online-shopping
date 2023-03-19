@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: MongoDB-Service
+Bundle-SymbolicName: MongoDB-Service
+Bundle-Version: 1.0.0.qualifier
+Export-Package: mongodb_service
+Bundle-Activator: mongodb_service.Activator
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Automatic-Module-Name: MongoDB.Service
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: ., mongodb-driver-bundle
+Import-Package: com.mongodb.*,
+ com.mongodb.client,
+ org.osgi.framework;version="1.10.0"
+
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: MongoDB Driver Bundle
+Bundle-SymbolicName: mongodb-driver-bundle
+Bundle-Version: 1.0.0.qualifier
+Bundle-ClassPath: lib/mongo-java-driver-3.6.0.jar
+Export-Package: com.mongodb

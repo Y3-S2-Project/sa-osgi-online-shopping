@@ -3,15 +3,16 @@ package com.csse_we_26.order_history_view.view;
 import java.util.Scanner;
 
 import com.csse_we_26.order_history_generator.service.OrderHistoryService;
+import com.csse_we_26.shopping_cart_generator.service.ShoppingCartService;
 
 public class OrderHistoryView {
 
 	private final OrderView orderView;
 	private final Scanner scanner;
 
-	public OrderHistoryView(OrderHistoryService orderHistoryService) {
+	public OrderHistoryView(OrderHistoryService orderHistoryService,ShoppingCartService shoppingCartService) {
 		this.orderView = new OrderView();
-		this.orderView.setOrderHistoryService(orderHistoryService);
+		this.orderView.setOrderHistoryService(orderHistoryService,shoppingCartService);
 		scanner = new Scanner(System.in);
 	}
 

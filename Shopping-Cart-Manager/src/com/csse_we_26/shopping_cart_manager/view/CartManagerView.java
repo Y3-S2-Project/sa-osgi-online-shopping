@@ -2,6 +2,7 @@ package com.csse_we_26.shopping_cart_manager.view;
 
 import java.util.Scanner;
 
+import com.csse_we_26.product_listing_generator.service.ProductListingGenerator;
 import com.csse_we_26.shopping_cart_generator.service.ShoppingCartService;
 
 public class CartManagerView {
@@ -9,9 +10,9 @@ public class CartManagerView {
 	private final CartView cartView;
 	private final Scanner scanner;
 
-	public CartManagerView(ShoppingCartService shoppingCartService) {
+	public CartManagerView(ShoppingCartService shoppingCartService,ProductListingGenerator productListingGenerator) {
 		this.cartView = new CartView();
-		this.cartView.setShoppingCartService(shoppingCartService);
+		this.cartView.setShoppingCartService(shoppingCartService, productListingGenerator);
 		scanner = new Scanner(System.in);
 	}
 

@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: MongoDB Driver Bundle
+Bundle-SymbolicName: mongodb-driver-bundle
+Bundle-Version: 1.0.0.qualifier
+Bundle-ClassPath: lib/mongo-java-driver-3.6.0.jar
+Export-Package: com.mongodb

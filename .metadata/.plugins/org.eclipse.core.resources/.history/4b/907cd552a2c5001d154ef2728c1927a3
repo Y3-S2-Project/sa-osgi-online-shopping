@@ -1,0 +1,26 @@
+package mongodb_service;
+
+import org.osgi.framework.BundleActivator;
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.ServiceRegistration;
+
+
+
+public class Activator implements BundleActivator {
+
+	private ServiceRegistration registration;
+	public void start(BundleContext bundleContext) throws Exception {
+	MongoService mongoService = new MongoServiceImpl();
+		
+		registration = bundleContext.registerService(
+				MongoService.class.getName(), 
+				mongoService, 
+				null);
+		
+	}
+
+	public void stop(BundleContext bundleContext) throws Exception {
+		registration.unregister();
+	}
+
+}
