@@ -16,13 +16,12 @@ import mongodb_service.ShoppingCartMapper;
 public class ShoppingCartGeneratorActivator implements BundleActivator {
 
 	private ServiceRegistration shoppingCartGeneratorRegistration;
-	private ServiceReference<MongoService> mongoServiceReference;
+
 
 	public void start(BundleContext bundleContext) throws Exception {
 		System.out.println("Starting Shopping Cart Generator bundle...");
 		
-		mongoServiceReference =  bundleContext.getServiceReference(MongoService.class);
-		MongoService mongoService = bundleContext.getService(mongoServiceReference);
+
 		
 		
 		ShoppingCartService shoppingCartService = new ShoppingCartServiceImpl(mongoService.getDatabase());
