@@ -14,5 +14,6 @@ public interface ShoppingCartDAO {
 	public void clearCart();
 	public List<CartItemDTO> getAllCartItems();
 	public ShoppingCartDTO getShoppingCartByCustomerId(String customerId);
+	public void saveShoppingCart(ShoppingCartDTO shoppingCartDTO);
 	
 }
