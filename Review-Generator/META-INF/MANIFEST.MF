@@ -14,6 +14,3 @@ Require-Bundle: MongoDB-Service;bundle-version="1.0.0"
 Bundle-ClassPath: ., MongoDB-Service;bundle-version="1.0.0", MongoDB-Service/lib/mongo-java-driver-3.6.0.jar
 Export-Package: 
  com.csse_we_26.reviewgenerator.service
-
-
-

@@ -4,11 +4,12 @@ import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceRegistration;
 
-import com.csse_we_26.product_listing_generator.DTO.ProductDTO;
-import com.csse_we_26.shopping_cart_generator.mapper.ShoppingCartMapper;
-import com.csse_we_26.shopping_cart_generator.model.ShoppingCart;
+
 import com.csse_we_26.shopping_cart_generator.service.ShoppingCartService;
 import com.csse_we_26.shopping_cart_generator.service.impl.ShoppingCartServiceImpl;
+
+import mongodb_service.ShoppingCart;
+import mongodb_service.ShoppingCartMapper;
 
 public class ShoppingCartGeneratorActivator implements BundleActivator {
 

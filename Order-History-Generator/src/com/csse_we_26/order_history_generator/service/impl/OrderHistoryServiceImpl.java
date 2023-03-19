@@ -3,10 +3,11 @@ package com.csse_we_26.order_history_generator.service.impl;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import com.csse_we_26.order_history_generator.DTO.OrderHistoryDTO;
 import com.csse_we_26.order_history_generator.service.OrderHistoryService;
 import com.csse_we_26.order_history_generator.util.MongoDBUtil;
 import com.csse_we_26.order_history_generatoy.dao.impl.OrderHistoryDAOImpl;
+
+import mongodb_service.OrderHistoryDTO;
 
 public class OrderHistoryServiceImpl implements OrderHistoryService {
 
