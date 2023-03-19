@@ -26,5 +26,4 @@ public class ShoppingCartManagerActivator implements BundleActivator {
 		System.out.println("Cart Manager View bundle...");
 		bundleContext.ungetService(shoppingCartServiceReference);
 	}
-
 }
