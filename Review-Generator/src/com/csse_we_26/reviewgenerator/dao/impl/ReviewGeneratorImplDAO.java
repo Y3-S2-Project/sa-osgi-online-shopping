@@ -2,13 +2,15 @@ package com.csse_we_26.reviewgenerator.dao.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.mongodb.client.model.Filters;
+
+import mongodb_service.Review;
+import mongodb_service.ReviewMapper;
 
 import org.bson.Document;
 
 
 import com.csse_we_26.reviewgenerator.dao.ReviewGeneratorDAO;
-import com.csse_we_26.reviewgenerator.mapper.ReviewMapper;
-import com.csse_we_26.reviewgenerator.model.Review;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 
@@ -101,5 +103,30 @@ public class ReviewGeneratorImplDAO  implements ReviewGeneratorDAO{
 			System.out.println("Error getting reviews: " + e.getMessage());
 			return null;
 		}
+	}
+	public List<Review> getReviewByProductId(String productId) {
+		try {
+			//MongoCollection<Document> collection = database.getCollection("reviews");
+			
+			List<Review> reviews = new ArrayList<>();
+			
+			for (Document doc : collection.find(Filters.eq("productId", productId))) {
+				Review review = new Review(
+						doc.getObjectId("_id").toString(),
+						doc.getString("productId"),
+						doc.getString("userId"),
+						doc.getDouble("rating"),
+						doc.getString("comment")
+				);
+				
+				reviews.add(review);
+			}
+			
+			return reviews;
+		} catch (Exception e) {
+			System.out.println("Error updating review: " + e.getMessage());
+			return null;
+		}
+		
 	}
 }

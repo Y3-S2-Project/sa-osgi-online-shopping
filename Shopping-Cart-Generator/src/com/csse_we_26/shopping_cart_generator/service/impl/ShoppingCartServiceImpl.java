@@ -2,19 +2,22 @@ package com.csse_we_26.shopping_cart_generator.service.impl;
 
 import java.util.List;
 
-import com.csse_we_26.product_listing_generator.DTO.ProductDTO;
-import com.csse_we_26.shopping_cart_generator.DTO.CartItemDTO;
-import com.csse_we_26.shopping_cart_generator.DTO.ShoppingCartDTO;
+import mongodb_service.ProductDTO;
 import com.csse_we_26.shopping_cart_generator.dao.impl.ShoppingCartDAOImpl;
 import com.csse_we_26.shopping_cart_generator.service.ShoppingCartService;
-import com.csse_we_26.shopping_cart_generator.utils.MongoDBUtil;
+
+import com.mongodb.client.MongoDatabase;
+
+import mongodb_service.CartItemDTO;
+import mongodb_service.ShoppingCartDTO;
 
 public class ShoppingCartServiceImpl implements ShoppingCartService {
 
 	private ShoppingCartDAOImpl shoppingCartDAO;
 
-	public ShoppingCartServiceImpl() {
-		System.out.println(MongoDBUtil.getInstance().getDatabase());
+	public ShoppingCartServiceImpl(MongoDatabase mongoDatabase) {
+		System.out.println(mongoDatabase.getName());
+		
 //		this.shoppingCartDAO = new ShoppingCartDAOImpl(MongoDBUtil.getInstance().getDatabase(), "cart");
 	}
 
@@ -57,5 +60,11 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 			totalPrice += item.getProduct().getPrice() * item.getQuantity();
 		}
 		return totalPrice;
+	}
+
+	@Override
+	public void saveShoppingCart(ShoppingCartDTO shoppingCartDTO) {
+		// TODO Auto-generated method stub
+		
 	}
 }

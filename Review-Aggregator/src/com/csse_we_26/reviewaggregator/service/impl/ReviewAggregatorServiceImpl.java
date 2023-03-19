@@ -3,11 +3,13 @@ package com.csse_we_26.reviewaggregator.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.csse_we_26.product_listing_generator.dto.ReviewDTO;
+
 import com.csse_we_26.reviewaggregator.service.ReviewAggregatorService;
-import com.csse_we_26.reviewgenerator.mapper.ReviewMapper;
-import com.csse_we_26.reviewgenerator.model.Review;
 import com.csse_we_26.reviewgenerator.service.ReviewGeneratorService;
+
+import mongodb_service.Review;
+import mongodb_service.ReviewDTO;
+import mongodb_service.ReviewMapper;
 
 public class ReviewAggregatorServiceImpl implements ReviewAggregatorService {
 	
@@ -66,5 +68,6 @@ public class ReviewAggregatorServiceImpl implements ReviewAggregatorService {
 		
 		return reviewsByUser;
 	}
+
 }
 

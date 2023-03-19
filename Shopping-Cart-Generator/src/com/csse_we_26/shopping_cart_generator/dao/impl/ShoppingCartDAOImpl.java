@@ -5,15 +5,16 @@ import java.util.List;
 
 import org.bson.Document;
 
-import com.csse_we_26.product_listing_generator.DTO.ProductDTO;
-import com.csse_we_26.shopping_cart_generator.DTO.CartItemDTO;
-import com.csse_we_26.shopping_cart_generator.DTO.ShoppingCartDTO;
+import mongodb_service.ProductDTO;
 import com.csse_we_26.shopping_cart_generator.dao.ShoppingCartDAO;
-import com.csse_we_26.shopping_cart_generator.mapper.ShoppingCartMapper;
 import com.mongodb.BasicDBObject;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+
+import mongodb_service.CartItemDTO;
+import mongodb_service.ShoppingCartDTO;
+import mongodb_service.ShoppingCartMapper;
 
 public class ShoppingCartDAOImpl implements ShoppingCartDAO {
 
@@ -85,6 +86,12 @@ public class ShoppingCartDAOImpl implements ShoppingCartDAO {
 		FindIterable<Document> iterable = collection.find(query);
 		Document document = iterable.first();
 		return ShoppingCartMapper.mapToShoppingCartDTO(document);
+	}
+
+	@Override
+	public void saveShoppingCart(ShoppingCartDTO shoppingCartDTO) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

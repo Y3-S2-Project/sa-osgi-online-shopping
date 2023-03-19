@@ -1,0 +1,8 @@
+package mongodb_service;
+
+
+
+public interface MongoService {
+	  public MongoDatabase getDatabase();
+
+}

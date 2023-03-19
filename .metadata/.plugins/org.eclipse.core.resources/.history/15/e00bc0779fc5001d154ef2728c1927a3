@@ -1,0 +1,13 @@
+package mongodb_service;
+
+import com.mongodb.client.MongoDatabase;
+
+public class MongoServiceImpl implements MongoService {
+
+	@Override
+	public MongoDatabase getDatabase() {
+		// TODO Auto-generated method stub
+		return MongoDBUtil.getInstance().getDatabase();
+	}
+
+}
