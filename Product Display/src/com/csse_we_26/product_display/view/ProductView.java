@@ -2,8 +2,9 @@ package com.csse_we_26.product_display.view;
 
 import java.util.List;
 
-import com.csse_we_26.product_listing_generator.dto.ProductDTO;
 import com.csse_we_26.product_listing_generator.service.ProductListingGenerator;
+
+import mongodb_service.ProductDTO;
 
 public class ProductView {
 
@@ -23,6 +24,7 @@ public class ProductView {
             System.out.println("Product Rating: " + product.getRating());
      
             System.out.println("Product Category: " + product.getCategory());
+            System.out.println("Product reviews"+ product.getReviews().toString());
         } else {
             System.out.println("Product not found: " + productId);
         }

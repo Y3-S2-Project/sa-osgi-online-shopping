@@ -1,4 +1,4 @@
-package com.csse_we_26.reviewgenerator.dto;
+package mongodb_service;
 
 public class ReviewDTO {
 	private String id;

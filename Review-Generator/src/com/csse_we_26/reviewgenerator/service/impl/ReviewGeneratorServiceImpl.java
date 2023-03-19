@@ -10,23 +10,26 @@ import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.component.annotations.ReferenceCardinality;
 import org.osgi.service.component.annotations.ReferencePolicy;
 
-
-
-
-import com.csse_we_26.product_listing_generator.utils.MongoDBUtil;
 import com.csse_we_26.reviewgenerator.dao.impl.ReviewGeneratorImplDAO;
-import com.csse_we_26.reviewgenerator.dto.ReviewDTO;
-import com.csse_we_26.reviewgenerator.mapper.ReviewMapper;
-import com.csse_we_26.reviewgenerator.model.Review;
 import com.csse_we_26.reviewgenerator.service.ReviewGeneratorService;
+
+import mongodb_service.MongoService;
+import mongodb_service.Review;
+import mongodb_service.ReviewDTO;
+import mongodb_service.ReviewMapper;
 
 
 @Component(immediate = true)
 public class ReviewGeneratorServiceImpl implements ReviewGeneratorService {
 	private ReviewGeneratorImplDAO reviewGeneratorDAOImpl;
 	private ReviewMapper mapper;
-	public ReviewGeneratorServiceImpl() {
-		reviewGeneratorDAOImpl= new ReviewGeneratorImplDAO(MongoDBUtil.getInstance().getDatabase(),"review");
+	public ReviewGeneratorServiceImpl(MongoService mongoService) {
+		try {
+			reviewGeneratorDAOImpl= new ReviewGeneratorImplDAO(mongoService.getDatabase(),"reviews");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.out.println("Yeah I am here");;
+		}
 	    mapper = new ReviewMapper();
 	}
 
@@ -60,20 +63,18 @@ public class ReviewGeneratorServiceImpl implements ReviewGeneratorService {
 		
 		return  reviewDTO;
 	}
+   public List<ReviewDTO> getReviewByProductId(String productId) {
+	   
+	    List<ReviewDTO> reviewDTO = new ArrayList<>();
+		
+		for(Review review : reviewGeneratorDAOImpl.getReviewByProductId(productId) ) {
+			reviewDTO.add(mapper.mapToReviewDTO(review));
+		}
+		
+		return  reviewDTO;
+   }
 
 
-	@Override
-	public boolean addReview(com.csse_we_26.reviewgenerator.service.ReviewDTO reviewDTO) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-
-	@Override
-	public boolean updateReview(com.csse_we_26.reviewgenerator.service.ReviewDTO reviewDTO) {
-		// TODO Auto-generated method stub
-		return false;
-	}
 	
 
 

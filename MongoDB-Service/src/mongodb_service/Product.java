@@ -1,4 +1,4 @@
-package com.csse_we_26.product_listing_generator.model;
+package mongodb_service;
 
 
 import java.util.List;
@@ -8,7 +8,7 @@ import org.bson.Document;
 import org.bson.types.ObjectId;
 
 
-import com.csse_we_26.reviewgenerator.model.Review;
+
 
 public class Product {
 	private ObjectId _id;

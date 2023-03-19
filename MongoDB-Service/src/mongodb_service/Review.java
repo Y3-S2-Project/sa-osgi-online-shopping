@@ -1,4 +1,4 @@
-package com.csse_we_26.reviewgenerator.model;
+package mongodb_service;
 
 import org.bson.Document;
 

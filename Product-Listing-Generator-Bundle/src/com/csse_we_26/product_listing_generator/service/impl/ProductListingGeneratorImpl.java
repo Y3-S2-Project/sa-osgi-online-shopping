@@ -4,18 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.csse_we_26.product_listing_generator.dao.impl.ProductDAOImpl;
-import com.csse_we_26.product_listing_generator.dto.ProductDTO;
-import com.csse_we_26.product_listing_generator.mapper.ProductMapper;
-import com.csse_we_26.product_listing_generator.model.Product;
 import com.csse_we_26.product_listing_generator.service.ProductListingGenerator;
-import com.csse_we_26.product_listing_generator.utils.MongoDBUtil;
+
+import com.csse_we_26.reviewgenerator.service.ReviewGeneratorService;
+
+import mongodb_service.MongoService;
+import mongodb_service.Product;
+import mongodb_service.ProductDTO;
+import mongodb_service.ProductMapper;
 
 public class ProductListingGeneratorImpl implements  ProductListingGenerator {
 	private ProductDAOImpl productDAOImpl=null;
 	private ProductMapper mapper;
-	
-	public ProductListingGeneratorImpl() {
-		productDAOImpl= new ProductDAOImpl(MongoDBUtil.getInstance().getDatabase(),"products");
+	private ReviewGeneratorService reviewGeneratorService;
+	public ProductListingGeneratorImpl(ReviewGeneratorService reviewGeneratorService, MongoService mongoService) {
+		productDAOImpl= new ProductDAOImpl(mongoService.getDatabase(),"products");
+		this.reviewGeneratorService=reviewGeneratorService;
 	    mapper = new ProductMapper();
 	}
 
@@ -23,7 +27,7 @@ public class ProductListingGeneratorImpl implements  ProductListingGenerator {
 	public ProductDTO getProductById(String productId) {
 		// TODO Auto-generated method stub
 		
-		return mapper.mapToProductDTO(productDAOImpl.getProductById(productId));
+		return mapper.mapToProductDTO(productDAOImpl.getProductById(productId),reviewGeneratorService.getReviewByProductId(productId));
 	}
 
 	@Override
@@ -31,7 +35,7 @@ public class ProductListingGeneratorImpl implements  ProductListingGenerator {
 	     List<ProductDTO> productDTOs = new ArrayList<ProductDTO>();
 		
 		for(Product product :productDAOImpl.getProductsByCategory(category)) {
-			productDTOs.add(mapper.mapToProductDTO(product));
+			productDTOs.add(mapper.mapToProductDTO(product,reviewGeneratorService.getReviewByProductId(product.getId())));
 		}
 		return productDTOs;
 	}
@@ -41,7 +45,7 @@ public class ProductListingGeneratorImpl implements  ProductListingGenerator {
 	    List<ProductDTO> productDTOs = new ArrayList<ProductDTO>();
 		
 		for(Product product :productDAOImpl.getProductsByPriceRange(minPrice, maxPrice)) {
-			productDTOs.add(mapper.mapToProductDTO(product));
+			productDTOs.add(mapper.mapToProductDTO(product,reviewGeneratorService.getReviewByProductId(product.getId())));
 		}
 		return productDTOs;
 	}
@@ -51,7 +55,7 @@ public class ProductListingGeneratorImpl implements  ProductListingGenerator {
 	    List<ProductDTO> productDTOs = new ArrayList<ProductDTO>();
 		
 		for(Product product :productDAOImpl.getProductsSortedByPrice()) {
-			productDTOs.add(mapper.mapToProductDTO(product));
+			productDTOs.add(mapper.mapToProductDTO(product,reviewGeneratorService.getReviewByProductId(product.getId())));
 		}
 		return productDTOs;
 	}
@@ -61,7 +65,7 @@ public class ProductListingGeneratorImpl implements  ProductListingGenerator {
 	    List<ProductDTO> productDTOs = new ArrayList<ProductDTO>();
 		
 		for(Product product :productDAOImpl.getProductsSortedByPopularity()) {
-			productDTOs.add(mapper.mapToProductDTO(product));
+			productDTOs.add(mapper.mapToProductDTO(product,reviewGeneratorService.getReviewByProductId(product.getId())));
 		}
 		return productDTOs;
 	}
@@ -71,7 +75,7 @@ public class ProductListingGeneratorImpl implements  ProductListingGenerator {
 	    List<ProductDTO> productDTOs = new ArrayList<ProductDTO>();
 		
 		for(Product product :productDAOImpl.getProductsSortedByRating()) {
-			productDTOs.add(mapper.mapToProductDTO(product));
+			productDTOs.add(mapper.mapToProductDTO(product,reviewGeneratorService.getReviewByProductId(product.getId())));
 		}
 		return productDTOs;
 	}
@@ -82,7 +86,7 @@ public class ProductListingGeneratorImpl implements  ProductListingGenerator {
 		List<ProductDTO> productDTOs = new ArrayList<ProductDTO>();
 		
 		for(Product product :productDAOImpl.searchProductsByKeyword(keyword)) {
-			productDTOs.add(mapper.mapToProductDTO(product));
+			productDTOs.add(mapper.mapToProductDTO(product,reviewGeneratorService.getReviewByProductId(product.getId())));
 		}
 		return productDTOs;
 	}
