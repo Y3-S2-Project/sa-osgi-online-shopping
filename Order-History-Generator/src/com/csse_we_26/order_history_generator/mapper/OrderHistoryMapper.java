@@ -1,0 +1,55 @@
+package com.csse_we_26.order_history_generator.mapper;
+
+import org.bson.Document;
+
+import com.csse_we_26.order_history_generator.dto.OrderHistoryDTO;
+import com.csse_we_26.order_history_generator.model.OrderHistory;
+import com.csse_we_26.shopping_cart_generator.mapper.ShoppingCartMapper;
+
+
+
+public class OrderHistoryMapper {
+	
+    public static OrderHistoryDTO mapToOrderHistoryDTO(OrderHistory orderHistory) {
+        return new OrderHistoryDTO(
+                orderHistory.getOrderNumber(),
+                orderHistory.getCustomerId(),
+                ShoppingCartMapper.mapToShoppingCartDTO(orderHistory.getShoppingCart()),
+                orderHistory.getOrderStatus(),
+       
+                orderHistory.getShippingAddress()
+        );
+    }
+
+    public static OrderHistory mapToOrderHistory(OrderHistoryDTO orderHistoryDTO) {
+
+        return new OrderHistory(
+                orderHistoryDTO.getOrderNumber(),
+                orderHistoryDTO.getCustomerId(),
+                ShoppingCartMapper.mapToShoppingCart(orderHistoryDTO.getShoppingCartDTO()),
+                orderHistoryDTO.getOrderStatus(),
+                orderHistoryDTO.getShippingAddress()
+        );
+    }
+    
+    public static Document mapToDocument(OrderHistory orderHistory) {
+    	Document document = orderHistory.toDocument();
+    	return document;
+    }
+    
+    public static OrderHistory mapToOrderHistory(Document document) {
+    	OrderHistory orderHistory = new OrderHistory(document);
+    	return orderHistory;
+    }
+    
+    public static Document mapToDocument(OrderHistoryDTO orderHistoryDTO) {
+    	Document document = orderHistoryDTO.toDocument();
+    	return document;
+    }
+    
+    public static OrderHistoryDTO mapToOrderHistoryDTO(Document document) {
+    	OrderHistoryDTO orderHistoryDTO = new OrderHistoryDTO(document);
+    	return orderHistoryDTO;
+    }
+
+}

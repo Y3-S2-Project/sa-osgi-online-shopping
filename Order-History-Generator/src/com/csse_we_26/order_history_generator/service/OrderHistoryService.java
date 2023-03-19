@@ -3,7 +3,9 @@ package com.csse_we_26.order_history_generator.service;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import mongodb_service.OrderHistoryDTO;
+import com.csse_we_26.order_history_generator.dto.OrderHistoryDTO;
+
+
 
 public interface OrderHistoryService {
 	

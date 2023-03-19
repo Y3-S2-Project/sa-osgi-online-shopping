@@ -2,23 +2,23 @@ package com.csse_we_26.shopping_cart_generator.service.impl;
 
 import java.util.List;
 
-import mongodb_service.ProductDTO;
+import com.csse_we_26.product_listing_generator.dto.ProductDTO;
 import com.csse_we_26.shopping_cart_generator.dao.impl.ShoppingCartDAOImpl;
+import com.csse_we_26.shopping_cart_generator.dto.CartItemDTO;
+import com.csse_we_26.shopping_cart_generator.dto.ShoppingCartDTO;
 import com.csse_we_26.shopping_cart_generator.service.ShoppingCartService;
-
+import com.csse_we_26.shopping_cart_generator.util.MongoDBUtil;
 import com.mongodb.client.MongoDatabase;
 
-import mongodb_service.CartItemDTO;
-import mongodb_service.ShoppingCartDTO;
+
 
 public class ShoppingCartServiceImpl implements ShoppingCartService {
 
 	private ShoppingCartDAOImpl shoppingCartDAO;
 
-	public ShoppingCartServiceImpl(MongoDatabase mongoDatabase) {
-		System.out.println(mongoDatabase.getName());
-		
-//		this.shoppingCartDAO = new ShoppingCartDAOImpl(MongoDBUtil.getInstance().getDatabase(), "cart");
+	public ShoppingCartServiceImpl() {
+
+	   this.shoppingCartDAO = new ShoppingCartDAOImpl(MongoDBUtil.getInstance().getDatabase(), "carts");
 	}
 
 	@Override
@@ -48,7 +48,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 
 	@Override
 	public ShoppingCartDTO getShoppingCartByCustomerId(String customerId) {
-		System.out.println("getShoppingCartByCustomerId");
+	
 		return shoppingCartDAO.getShoppingCartByCustomerId(customerId);
 	}
 

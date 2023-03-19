@@ -28,7 +28,7 @@ public class MongoDBUtil {
 	}
 
 	public static MongoDBUtil getInstance() {
-		System.out.println("inside get instance method");
+
         MongoDBUtil result = instance;
         if (result == null) {
             synchronized(MongoDBUtil.class) {
@@ -42,7 +42,6 @@ public class MongoDBUtil {
     }
 
 	public MongoDatabase getDatabase() {
-		System.out.println("inside get database method");
 		return mongoDatabase;
 	}
 

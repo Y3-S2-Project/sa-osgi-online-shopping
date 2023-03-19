@@ -4,6 +4,8 @@ Bundle-Name: Product-Listing-Generator-Bundle
 Bundle-SymbolicName: Product-Listing-Generator-Bundle
 Bundle-Version: 1.0.0.qualifier
 Export-Package: com.csse_we_26.product_listing_generator.dto,
+ com.csse_we_26.product_listing_generator.mapper,
+ com.csse_we_26.product_listing_generator.model,
  com.csse_we_26.product_listing_generator.service
 Bundle-Activator: com.csse_we_26.product_listing_generator.activator.Activator
 Bundle-RequiredExecutionEnvironment: JavaSE-17

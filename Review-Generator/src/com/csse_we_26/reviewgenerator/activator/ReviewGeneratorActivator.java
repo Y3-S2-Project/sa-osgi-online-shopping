@@ -31,14 +31,13 @@ public class ReviewGeneratorActivator implements BundleActivator {
 				reviewGeneratorService, 
 				null);
 		
-		System.out.println(reviewGeneratorService.getReviewByProductId("PID009").toString());
+
 
 		
 	}
 
 	@Override
 	public void stop(BundleContext bundleContext) throws Exception {
-		System.out.println("Stopping Review Generator bundle...");
 		
 		registration.unregister();
 		

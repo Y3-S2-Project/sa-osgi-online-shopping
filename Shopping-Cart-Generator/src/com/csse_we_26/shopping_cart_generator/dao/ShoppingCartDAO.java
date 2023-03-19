@@ -2,10 +2,11 @@ package com.csse_we_26.shopping_cart_generator.dao;
 
 import java.util.List;
 
-import mongodb_service.ProductDTO;
+import com.csse_we_26.product_listing_generator.dto.ProductDTO;
+import com.csse_we_26.shopping_cart_generator.dto.CartItemDTO;
+import com.csse_we_26.shopping_cart_generator.dto.ShoppingCartDTO;
 
-import mongodb_service.CartItemDTO;
-import mongodb_service.ShoppingCartDTO;
+
 
 public interface ShoppingCartDAO {
 	

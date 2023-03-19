@@ -5,13 +5,11 @@ import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
 import org.osgi.framework.ServiceRegistration;
 
-
+import com.csse_we_26.shopping_cart_generator.model.ShoppingCart;
 import com.csse_we_26.shopping_cart_generator.service.ShoppingCartService;
 import com.csse_we_26.shopping_cart_generator.service.impl.ShoppingCartServiceImpl;
 
-import mongodb_service.MongoService;
-import mongodb_service.ShoppingCart;
-import mongodb_service.ShoppingCartMapper;
+
 
 public class ShoppingCartGeneratorActivator implements BundleActivator {
 
@@ -24,7 +22,7 @@ public class ShoppingCartGeneratorActivator implements BundleActivator {
 
 		
 		
-		ShoppingCartService shoppingCartService = new ShoppingCartServiceImpl(mongoService.getDatabase());
+		ShoppingCartService shoppingCartService = new ShoppingCartServiceImpl();
 		
 		shoppingCartGeneratorRegistration = bundleContext.registerService(ShoppingCartService.class.getName(),
 				shoppingCartService, null);
@@ -32,7 +30,7 @@ public class ShoppingCartGeneratorActivator implements BundleActivator {
 		System.out.println("Shopping Cart Generator bundle started successfully...");
 		
 		ShoppingCart cart = new ShoppingCart();
-		System.out.println(cart.getItems().toString());
+	//	System.out.println(cart.getItems().toString());
 //		ShoppingCartMapper mapper = new ShoppingCartMapper();
 //		shoppingCartService.addItemToCart(new ProductDTO.Builder().setId("PID009").build(), 1);
 //		shoppingCartService.addItemToCart(new ProductDTO.Builder().setId("PID010").build(), 3);

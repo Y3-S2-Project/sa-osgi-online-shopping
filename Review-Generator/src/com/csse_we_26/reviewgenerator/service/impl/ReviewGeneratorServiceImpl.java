@@ -26,7 +26,7 @@ public class ReviewGeneratorServiceImpl implements ReviewGeneratorService {
 		reviewGeneratorDAOImpl = new ReviewGeneratorImplDAO( MongoDBUtil.getInstance().getDatabase() , "reviews");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			System.out.println("Yeah I am here");
+			System.out.println(e.getMessage());
 			
 		}
 	}

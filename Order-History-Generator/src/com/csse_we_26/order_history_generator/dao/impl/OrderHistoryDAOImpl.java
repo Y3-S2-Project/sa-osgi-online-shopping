@@ -1,4 +1,4 @@
-package com.csse_we_26.order_history_generatoy.dao.impl;
+package com.csse_we_26.order_history_generator.dao.impl;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -7,14 +7,17 @@ import java.util.List;
 import org.bson.Document;
 
 import com.csse_we_26.order_history_generator.dao.OrderHistoryDAO;
+import com.csse_we_26.order_history_generator.dto.OrderHistoryDTO;
+import com.csse_we_26.order_history_generator.mapper.OrderHistoryMapper;
+import com.csse_we_26.order_history_generator.model.OrderHistory;
 import com.mongodb.BasicDBObject;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 
-import mongodb_service.OrderHistory;
-import mongodb_service.OrderHistoryDTO;
-import mongodb_service.OrderHistoryMapper;
+
+
+
 
 public class OrderHistoryDAOImpl implements OrderHistoryDAO {
 
@@ -95,7 +98,7 @@ public class OrderHistoryDAOImpl implements OrderHistoryDAO {
 					.append("customerId", orderHistory.getCustomerId())
 					.append("shoppingCart", orderHistory.getShoppingCart())
 					.append("orderStatus", orderHistory.getOrderStatus())
-					.append("orderDate", orderHistory.getOrderDate())
+	
 					.append("shippingAddress", orderHistory.getShippingAddress());
 
 			collection.insertOne(document);
@@ -115,7 +118,6 @@ public class OrderHistoryDAOImpl implements OrderHistoryDAO {
 					.append("customerId", orderHistory.getCustomerId())
 					.append("shoppingCart", orderHistory.getShoppingCart())
 					.append("orderStatus", orderHistory.getOrderStatus())
-					.append("orderDate", orderHistory.getOrderDate())
 					.append("shippingAddress", orderHistory.getShippingAddress());
 
 			collection.replaceOne(new Document("orderNumber", orderHistory.getOrderNumber()), document);

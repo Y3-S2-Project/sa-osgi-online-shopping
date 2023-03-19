@@ -33,10 +33,10 @@ public class ProductMapper {
     	if(list !=null) {
     		
     		List<ReviewDTO> reviewList = new ArrayList<ReviewDTO>();
-    		System.out.println(list.toString());
+    	
     		try {
     			for (Object obj : list) {
-    				  System.out.println(obj.getClass());
+    		
     				  
     			    if (obj instanceof Document) {
     			    	System.out.println(obj.getClass());
@@ -75,6 +75,7 @@ public class ProductMapper {
     }
 
     public Product mapToProduct(Document document) {
+    	System.out.println("Map to product");
         Product product = new Product(document);
 
 		return product;

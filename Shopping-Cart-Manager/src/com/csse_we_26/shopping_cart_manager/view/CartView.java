@@ -2,11 +2,10 @@ package com.csse_we_26.shopping_cart_manager.view;
 
 import java.util.ArrayList;
 
-import mongodb_service.CartItemDTO;
-import mongodb_service.ProductDTO;
-import mongodb_service.ShoppingCartDTO;
+import com.csse_we_26.product_listing_generator.dto.ProductDTO;
 import com.csse_we_26.product_listing_generator.service.ProductListingGenerator;
-
+import com.csse_we_26.shopping_cart_generator.dto.CartItemDTO;
+import com.csse_we_26.shopping_cart_generator.dto.ShoppingCartDTO;
 import com.csse_we_26.shopping_cart_generator.service.ShoppingCartService;
 
 public class CartView {
@@ -28,7 +27,7 @@ public class CartView {
 			for (CartItemDTO cartItemDTO : shoppingCartDTO.getItems()) {
 				System.out.println("\tProduct Name: " + cartItemDTO.getProduct().getName());
 				System.out.println("\tQuantity: " + cartItemDTO.getQuantity());
-				System.out.println("\tPrice: " + cartItemDTO.getProduct().getPrice());
+			System.out.println("\tPrice: " + cartItemDTO.getProduct().getPrice());
 			}
 		} else {
 			System.out.println("No shopping cart found for customer ID : " + customerId);

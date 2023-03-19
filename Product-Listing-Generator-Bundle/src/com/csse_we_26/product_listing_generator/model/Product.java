@@ -34,6 +34,7 @@ public class Product {
     }
 
     public Product(Document doc) {
+    	System.out.println("Onna metanatath awa");
         this._id = doc.getObjectId("_id");
         this.pid = doc.getString("pid");
         this.name = doc.getString("name");

@@ -4,15 +4,15 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
+import com.csse_we_26.order_history_generator.dto.OrderHistoryDTO;
 import com.csse_we_26.order_history_generator.service.OrderHistoryService;
-
+import com.csse_we_26.product_listing_generator.dto.ProductDTO;
+import com.csse_we_26.shopping_cart_generator.dto.CartItemDTO;
+import com.csse_we_26.shopping_cart_generator.dto.ShoppingCartDTO;
 import com.csse_we_26.shopping_cart_generator.service.ShoppingCartService;
 import com.csse_we_26.shopping_cart_generator.service.impl.ShoppingCartServiceImpl;
 
-import mongodb_service.CartItemDTO;
-import mongodb_service.OrderHistoryDTO;
-import mongodb_service.OrderStatus;
-import mongodb_service.ShoppingCartDTO;
+
 
 public class OrderView {
 
@@ -42,7 +42,7 @@ public class OrderView {
 
 			System.out.println("Order Number: " + orderHistoryDTO.getOrderNumber());
 			System.out.println("Customer ID: " + orderHistoryDTO.getCustomerId());
-			System.out.println("Order Date: " + orderHistoryDTO.getOrderDate());
+		//	System.out.println("Order Date: " + orderHistoryDTO.getOrderDate());
 			System.out.println("Shipping Address: " + orderHistoryDTO.getShippingAddress());
 			System.out.println("Order Status: " + orderHistoryDTO.getOrderStatus());
 
@@ -51,7 +51,7 @@ public class OrderView {
 			System.out.println("Shopping Cart Items:");
 
 			for (CartItemDTO cartItemDTO : shoppingCartDTO.getItems()) {
-				System.out.println("\tProduct Name: " + cartItemDTO.getProduct().getName());
+			System.out.println("\tProduct Name: " + cartItemDTO.getProduct().getName());
 				System.out.println("\tQuantity: " + cartItemDTO.getQuantity());
 				System.out.println("\tPrice: " + cartItemDTO.getProduct().getPrice());
 			}
@@ -67,7 +67,7 @@ public class OrderView {
 			System.out.println("Orders for customer with ID: " + customerId);
 			for (OrderHistoryDTO order : orders) {
 				System.out.println("Order Number: " + order.getOrderNumber());
-				System.out.println("Order Date: " + order.getOrderDate());
+		//		System.out.println("Order Date: " + order.getOrderDate());
 				System.out.println("Shipping Address: " + order.getShippingAddress());
 				System.out.println("Order Status: " + order.getOrderStatus());
 
@@ -99,8 +99,8 @@ public class OrderView {
 			// Create a new order
 			OrderHistoryDTO orderHistoryDTO = new OrderHistoryDTO(OrderView.generateOrderNumber());
 			orderHistoryDTO.setCustomerId(customerId);
-			orderHistoryDTO.setOrderDate(LocalDateTime.now());
-			orderHistoryDTO.setOrderStatus(OrderStatus.PROCESSING);
+
+			orderHistoryDTO.setOrderStatus("Procession");
 			orderHistoryDTO.setShippingAddress(shippingAddress);
 			orderHistoryDTO.setShoppingCartDTO(shoppingCartDTO);
 
