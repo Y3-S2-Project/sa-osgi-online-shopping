@@ -1,9 +1,9 @@
 # Project Name - Online Shopping System
 # Group NO : CSSE_WE_26
 # Batch - Y3.S2.WE.SE.01
-### Group Leader - IT20636524 - Miss. Ariyasena P.P.S.
+### Group Leader - IT20602628 - Miss. Munasinghe I.G.N.N.B. 
 ### Member 2 - IT20654962 - Mr. Jayasekara S.S.C.
-### Member 3 - IT20602628 - Miss. Munasinghe I.G.N.N.B. 
+### Member 3 - IT20636524 - Miss. Ariyasena P.P.S.
 ### Member 4 - IT20610302 - Mr. Chandra C.F.C.
 
 ## Project Description:
