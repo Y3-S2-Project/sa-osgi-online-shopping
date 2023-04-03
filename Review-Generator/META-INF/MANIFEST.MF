@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Online-Shopping
+Bundle-SymbolicName: Review-Generator
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.csse_we_26.reviewgenerator.activator.ReviewGeneratorActivator
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Automatic-Module-Name: Online.Shopping
+Import-Package: org.osgi.framework;version="1.3.0"
+Bundle-ClassPath: ., lib/mongo-java-driver-3.6.0.jar
+Export-Package: com.csse_we_26.reviewgenerator.dto,
+ com.csse_we_26.reviewgenerator.mapper,
+ com.csse_we_26.reviewgenerator.model,
+ com.csse_we_26.reviewgenerator.service
+
+
+
