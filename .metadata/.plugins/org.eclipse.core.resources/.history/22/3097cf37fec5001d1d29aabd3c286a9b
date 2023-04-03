@@ -1,8 +1,0 @@
-Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-Name: Mongodb-driver-bundle
-Bundle-SymbolicName: mongodb-driver-bundle
-Bundle-Version: 1.0.0.qualifier
-Automatic-Module-Name: mongodb.driver.bundle
-Bundle-RequiredExecutionEnvironment: JavaSE-17
-Bundle-ClassPath: mongo-java-driver-3.6.0.jar
